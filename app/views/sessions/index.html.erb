@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>GameName</th>
+    <th>Played Date</th>
+    <th>Players</th>
+  </tr>
+
+  <% @sessions.each do |session| %>
+      <tr>
+        <td><%= session.game.name %></td>
+        <td><%= session.played %></td>
+        <td>
+          <table>
+            <% session.session_player.each do |player| %>
+                <tr><td><%= player.player.name %> (<%= player.placing %>)</td></tr>
+            <% end %>
+          </table>
+        </td>
+      </tr>
+  <% end %>
+</table>
