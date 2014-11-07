@@ -2,9 +2,16 @@ Rails.application.routes.draw do
   
   resources :games do
     resources :sessions
+    collection do
+      get 'list'
+    end
   end
   
-  resources :players
+  resources :players do
+    collection do
+      get 'list'
+    end
+  end
 
   resources :sessions do
     resources :session_players

@@ -6,6 +6,11 @@ class PlayersController < ApplicationController
   def new
   end
 
+  def list
+    players = Player.all
+    render :json => players
+  end
+
   def create
     @player = Player.new(player_params)
     @player.save
