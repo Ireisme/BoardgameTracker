@@ -1,0 +1,83 @@
+<div ng-app="sessionApp">
+  <div ng-controller="SessionNewCtrl">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <span class="panel-title">Choose Game</span>
+            </div>
+            <div class="panel-body">
+              <select ng-model="session.game_id" ng-options="game.id as game.name for game in games"></select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <span class="panel-title">Session</span>
+            </div>
+            <div class="panel-body">
+              <form name="sessionForm">
+                <div ng-repeat="player in session.session_players">
+                  <div class="row">
+                    <div class="col-md-2">
+                      {{ player.player_name }}
+                    </div>
+                    <div class="col-md-9">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Place:</label>
+                            <input class="form-control" ng-model="player.placing" required />
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Team:</label>
+                            <input class="form-control" ng-model="player.team" />
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Score:</label>
+                            <input class="form-control" ng-model="player.score" required />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1">
+                      <a ng-click="removeFromSession($index)"><span  class="fa fa-times"></span></a>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-primary"
+                        ng-click="saveSession()"
+                        ng-disabled="sessionForm.$invalid || session.session_players.length == 0 || !session.game_id">
+                  Save Session
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <span class="panel-title">Add Players</span>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <ll ng-repeat="player in players">
+                  <div ng-show="!player.added">
+                    <a ng-click="addToSession(player)">{{ player.name }}</a>
+                  </div>
+                </ll>
+              </ul>
+            </div>
+          </div>
+         </div>
+      </div>
+  </div>
+</div>
+

@@ -16,6 +16,11 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+  def list
+    games = Game.all
+    render :json => games
+  end
+
   private
     def game_params
       params.require(:game).permit(:name, :coop, :description)
