@@ -4,7 +4,7 @@
 
 app = angular.module("sessionApp", [])
 
-app.controller "SessionNewCtrl", ($scope, $http, $window) ->
+app.controller "SessionNewCtrl", ["$scope", "$http", "$window", ($scope, $http, $window) ->
   $scope.name = "HEY THERE"
   $scope.session = {
     session_players: []
@@ -39,3 +39,4 @@ app.controller "SessionNewCtrl", ($scope, $http, $window) ->
     return
 
   return
+  ]
