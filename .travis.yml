@@ -1,12 +1,19 @@
 language: ruby
 rvm:
-  - 1.9.3
+- 1.9.3
 env:
-  - DB=postgresql
+- DB=postgresql
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rake
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rake
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database gametracker_test' -U postgres
+- cp config/database.travis.yml config/database.yml
+- psql -c 'create database gametracker_test' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: Ru0GCrj3FDVL4ACvIioIXFD3p1YasBNr2tNzOPpRPyvN6NBoDpPfREgz/qHG86sWiQ0ZzXHY3A6o3VftvpyoUyEATgO5QO6Ba733xbfcfb4x7koCaEgv8wM1KI4WtepZFKYAdGVT2my+FAbPITuYmcWs/Dr5YRT2JfhBdu0nJV0=
+  app: candyce-wins
+  on:
+    repo: Ireisme/GameTracker
