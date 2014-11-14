@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 
+  id: 1
   name: MyString
   description: MyText
   coop: 
 
 two:
-  id: 
+  id: 2
   name: MyString
   description: MyText
   coop: 

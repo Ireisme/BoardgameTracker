@@ -1,7 +1,18 @@
 require 'test_helper'
 
 class GamesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'should post create' do
+    @new_game = {
+        'name' => 'test',
+        'description' => 'test desc'
+    }
+
+    post :create, {'game_id' => 1, 'game' => @new_game}
+    assert_redirected_to '/'
+  end
+
+  test 'should get index' do
+    get :index
+    assert_response :success
+  end
 end
