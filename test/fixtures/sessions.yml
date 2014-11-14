@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   played: 2014-10-28
   notes: MyText
   game_id: 
 
 two:
+  id: 2
   played: 2014-10-28
   notes: MyText
   game_id: 
