@@ -1,15 +1,53 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  score: 1
+session_one_winner:
+  score: 100
   placing: 1
-  team_number: 
-  player_id: 
-  session_id: 
+  player: candyce
+  session: session_one
 
-two:
-  score: 1
+session_one_second:
+  score: 80
+  placing: 2
+  player: josh
+  session: session_one
+
+session_one_third:
+  score: 70
+  placing: 3
+  player: brian
+  session: session_one
+
+session_two_winner:
+  score: 99
   placing: 1
-  team_number: 
-  player_id: 
-  session_id: 
+  player: josh
+  session: session_two
+
+session_two_second:
+  score: 82
+  placing: 2
+  player: brian
+  session: session_two
+
+session_three_winner:
+  score: 20
+  placing: 1
+  player: josh
+  session: session_three
+
+session_three_second:
+  score: 15
+  placing: 2
+  player: brian
+  session: session_three
+
+session_four_winner:
+  placing: 1
+  player: brian
+  session: session_four
+
+session_four_second:
+  placing: 2
+  player: josh
+  session: session_four

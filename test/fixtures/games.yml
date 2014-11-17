@@ -1,13 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  id: 1
-  name: MyString
-  description: MyText
-  coop: 
+game_one:
+  name: Game1
+  description: Game 1 desc
 
-two:
-  id: 2
-  name: MyString
-  description: MyText
-  coop: 
+game_two:
+  name: Game2
+  description: Game 2 desc

@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  powers: MyText
+candyce:
+  name: Candyce
+  powers: Undefeatable
 
-two:
-  name: MyString
-  powers: MyText
+josh:
+  name: Josh
+
+brian:
+  name: Brian
