@@ -11,7 +11,7 @@
         <td><%= session.played %></td>
         <td>
           <table>
-            <% session.session_player.each do |player| %>
+            <% session.session_players.each do |player| %>
                 <tr><td><%= player.player.name %> (<%= player.placing %>)</td></tr>
             <% end %>
           </table>

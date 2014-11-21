@@ -13,7 +13,7 @@ class Game < ActiveRecord::Base
   def game_totals
     # Have to declare win_percentage because (wins / plays) doesn't work in ordering
     # In win_percentage calculation, have to cast one operand to float to ensure float result
-    Session.joins(:session_player)
+    Session.joins(:session_players)
       .select('session_players.player_id,
                count(*) as plays,
                sum(case "placing"
