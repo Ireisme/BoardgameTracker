@@ -1,4 +1,6 @@
-== README
+{<img src="https://travis-ci.org/Ireisme/GameTracker.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Ireisme/GameTracker]
+
+== GameTracker
 
 An application for keeping track of how often Candyce murders everyone at any given boardgame.
 
