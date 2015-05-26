@@ -13,8 +13,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions do
-    resources :session_players
+  namespace :game do
+    resources :sessions, except: [:index, :new] do
+      collection do
+        get 'new', as: 'new'
+        get 'index', as: 'index'
+      end
+      resources :session_players
+    end
   end
 
   root 'welcome#index'

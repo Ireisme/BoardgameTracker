@@ -26,7 +26,7 @@
             <li class="<%= 'active' if params[:controller] == 'welcome' %>"><%= link_to 'Home', root_path %></li>
             <li class="<%= 'active' if params[:controller] == 'games' %>"><%= link_to 'Games', games_path %></li>
             <li class="<%= 'active' if params[:controller] == 'players' %>"><%= link_to 'Players', players_path %></li>
-            <li class="<%= 'active' if params[:controller] == 'sessions' %>"><%= link_to 'Sessions', sessions_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'game/sessions' %>"><%= link_to 'Sessions', index_game_sessions_path %></li>
           </ul>
         </div>
       </div>
