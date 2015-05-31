@@ -46,3 +46,5 @@ gem 'rails_12factor'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Add devise for authentication
+gem 'devise'
