@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SessionsControllerTest < ActionController::TestCase
+class Game::SessionsControllerTest < ActionController::TestCase
   test 'should post create' do
     @session_players = [
         {
