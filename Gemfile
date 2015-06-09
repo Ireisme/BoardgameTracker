@@ -48,3 +48,6 @@ gem 'rails_12factor'
 
 # Add devise for authentication
 gem 'devise'
+
+# Add devise support for sending invites by email
+gem 'devise_invitable'
