@@ -46,3 +46,8 @@ gem 'rails_12factor'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Add devise for authentication
+gem 'devise'
+
+# Add devise support for sending invites by email
+gem 'devise_invitable'

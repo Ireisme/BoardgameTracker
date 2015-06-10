@@ -8,3 +8,13 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+#Appease Devise during testing
+class ActionController::TestCase
+  include Devise::TestHelpers
+
+  def setup
+    # explicitly sign in to avoid login redirect
+    sign_in users(:user1)
+  end
+end

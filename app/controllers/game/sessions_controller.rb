@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Game::SessionsController < ApplicationController
   protect_from_forgery except: :create
 
   def index

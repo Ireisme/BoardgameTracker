@@ -13,8 +13,20 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions do
-    resources :session_players
+  namespace :game do
+    resources :sessions, except: [:index, :new] do
+      collection do
+        get 'new', as: 'new'
+        get 'index', as: 'index'
+      end
+      resources :session_players
+    end
+  end
+
+  devise_for :users, :skip => [:registrations]
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
   root 'welcome#index'
