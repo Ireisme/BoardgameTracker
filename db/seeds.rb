@@ -6,7 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#Create basic user in non-production environments
 unless Rails.env == 'production'
-  User.create! :email => 'gametracker@example.com', :password => 'gametracker', :password_confirmation => 'gametracker'
+  #Create basic user in non-production environments
+  genesisUser = User.find_or_initialize_by(email: 'gametracker@example.com')
+  genesisUser.password = 'gametracker'
+  genesisUser.password_confirmation = 'gametracker'
+  genesisUser.save!
 end
