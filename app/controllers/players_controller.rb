@@ -1,13 +1,13 @@
 class PlayersController < ApplicationController
   def index
-    @players = Player.all
+    @players = get_filtered_players
   end
 
   def new
   end
 
   def list
-    players = Player.all
+    players = get_filtered_players
     render :json => players
   end
 
@@ -27,5 +27,9 @@ class PlayersController < ApplicationController
   private
     def player_params
       params.require(:player).permit(:name, :powers)
+    end
+
+    def get_filtered_players
+      Player.all.select { |player| player.id > 0 }
     end
 end
