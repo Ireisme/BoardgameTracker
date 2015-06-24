@@ -18,7 +18,10 @@ class PlayersController < ApplicationController
   end
 
   def show
-    @player = Player.find(params[:id])
+    session_id = params[:id].to_i
+    not_found if session_id < 0
+
+    @player = Player.find(session_id)
   end
 
   private
