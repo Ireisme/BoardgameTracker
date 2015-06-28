@@ -11,11 +11,19 @@ class Game::SessionsController < ApplicationController
   end
 
   def create
+    players = params[:session_players]
+    identified_players = players.select { |p| p[:player_id].to_i > 0 }
+
+    # Only allow duplicate unknown players
+    if identified_players.map { |p| p[:player_id] }.uniq.length != identified_players.length
+      raise ActionController::BadRequest.new('Duplicate Players')
+    end
+
     @session = Session.new
     @session.game_id = params[:game_id]
     @session.save
 
-    params[:session_players].each do |player|
+    players.each do |player|
       @session_player = SessionPlayer.new
       @session_player.session_id = @session.id
       @session_player.player_id = player[:player_id]
