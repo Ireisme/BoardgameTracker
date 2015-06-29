@@ -51,3 +51,9 @@ gem 'devise'
 
 # Add devise support for sending invites by email
 gem 'devise_invitable'
+
+# Add support for testing javascript
+group :development, :test do
+  gem 'teaspoon-mocha'
+  gem 'phantomjs'
+end
