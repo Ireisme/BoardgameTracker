@@ -7,6 +7,7 @@ script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - bundle exec rake
+- bundle exec rake teaspoon
 before_script:
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database gametracker_test' -U postgres
