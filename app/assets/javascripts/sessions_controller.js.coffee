@@ -33,7 +33,7 @@ app.controller "SessionNewCtrl", ["$scope", "$http", "$window", ($scope, $http, 
     return
 
   $scope.saveSession = () ->
-    $http.post("/sessions", $scope.session).success (data) ->
+    $http.post("/game/sessions", $scope.session).success (data) ->
       $window.location.href = data.url
       return
     return
