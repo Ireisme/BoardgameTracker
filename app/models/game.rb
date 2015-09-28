@@ -1,6 +1,8 @@
 class Game < ActiveRecord::Base
   has_many :sessions
 
+  default_scope { order('name asc') }
+
   def best_player
     game_totals.first
   end
