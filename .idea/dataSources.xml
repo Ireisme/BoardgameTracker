@@ -5,26 +5,19 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1/gametracker_development</jdbc-url>
-      <user-name>gametracker</user-name>
-      <user-password>dfcddfcbdfc7dfcfdfdedfd8dfcbdfc9dfc1dfcfdfd8</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails GameTracker: test" uuid="8c3253f1-978e-4662-a062-0b417e1c1e43">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1/gametracker_test</jdbc-url>
-      <user-name>gametracker</user-name>
-      <user-password>dfcddfcbdfc7dfcfdfdedfd8dfcbdfc9dfc1dfcfdfd8</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails GameTracker: production" uuid="c16ccce7-2e60-4838-a0cf-8dbbe8622440">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:GameTracker_production</jdbc-url>
-      <user-name>GameTracker</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfeddfebdfe7dfefdffedff8dfebdfe9dfe1dfefdff8dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
   </component>
 </project>
-
