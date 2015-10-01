@@ -16,5 +16,7 @@
 /tmp
 
 # Ignore RubyMine files.
-/.idea/workspace.xml
-/.idea/tasks.xml
+/.idea
+
+# Ignore cache
+/vendor/cache
