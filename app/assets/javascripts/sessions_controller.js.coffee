@@ -19,7 +19,9 @@ app.controller "SessionNewCtrl", ["$scope", "$http", "$window", ($scope, $http, 
     return
 
   $scope.addToSession = (player) ->
-    player.added = true
+    if (player.id > 0)
+      player.added = true
+      
     $scope.session.session_players.push { player_id: player.id, player_name: player.name }
     return
 
