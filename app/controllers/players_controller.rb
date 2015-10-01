@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
   end
 
   def list
-    players = get_filtered_players
+    players = params[:include_unknown] ? Player.all : get_filtered_players
     render :json => players
   end
 

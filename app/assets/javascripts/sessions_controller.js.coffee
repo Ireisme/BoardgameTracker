@@ -14,7 +14,7 @@ app.controller "SessionNewCtrl", ["$scope", "$http", "$window", ($scope, $http, 
     $scope.games = data
     return
 
-  $http.get("/players/list").success (data) ->
+  $http.get("/players/list", {params: {include_unknown: true}}).success (data) ->
     $scope.players = data
     return
 
