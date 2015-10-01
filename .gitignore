@@ -18,5 +18,5 @@
 # Ignore RubyMine files.
 /.idea
 
-# Ignore rails vendor files
-/vendor
+# Ignore cache
+/vendor/cache
