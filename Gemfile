@@ -32,6 +32,7 @@ gem 'font-awesome-rails'
 gem 'underscore-rails'
 gem 'rails-assets-angular'
 gem 'rails-assets-bootstrap'
+gem 'angular-ui-bootstrap-rails'
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password

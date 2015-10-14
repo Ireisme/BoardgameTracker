@@ -1,13 +1,28 @@
 <div ng-app="sessionApp">
   <div ng-controller="SessionNewCtrl">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
           <div class="panel panel-success">
             <div class="panel-heading">
               <span class="panel-title">Choose Game</span>
             </div>
             <div class="panel-body">
               <select ng-model="session.game_id" ng-options="game.id as game.name for game in games"></select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <span class="panel-title">Choose Date</span>
+            </div>
+            <div class="panel-body">
+              <p class="input-group">
+                <input type="text" class="form-control" ng-model="session.played" datepicker-popup="yyyy/MM/dd" is-open="status.opened" close-text="Close" show-weeks="false" max-date="maxDate" date-only-format/>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
             </div>
           </div>
         </div>
@@ -54,7 +69,7 @@
                 </div>
                 <button class="btn btn-primary"
                         ng-click="saveSession()"
-                        ng-disabled="sessionForm.$invalid || session.session_players.length == 0 || !session.game_id">
+                        ng-disabled="sessionForm.$invalid || session.session_players.length == 0 || !session.game_id || !session.played">
                   Save Session
                 </button>
               </form>
