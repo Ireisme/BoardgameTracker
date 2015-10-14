@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-app = angular.module("sessionApp", [])
+app = angular.module("sessionApp", ['ui.bootstrap'])
 
-app.controller "SessionNewCtrl", ["$scope", "$http", "$window", ($scope, $http, $window) ->
+app.controller "SessionNewCtrl", ["$scope", "$http", "$window", 'dateFilter', ($scope, $http, $window, dateFilter) ->
   $scope.name = "HEY THERE"
   $scope.session = {
     session_players: []
@@ -40,5 +40,26 @@ app.controller "SessionNewCtrl", ["$scope", "$http", "$window", ($scope, $http, 
       return
     return
 
+  $scope.open = (event) ->
+    $scope.status.opened = true
+
+  $scope.dateFormat = 'yyyy/MM/dd'
+  $scope.session.played = dateFilter(new Date, $scope.dateFormat)
+
+  $scope.status = {
+    opened: false
+  }
+
+  $scope.maxDate = new Date
+
   return
   ]
+
+app.directive 'dateOnlyFormat', (dateFilter) ->
+  {
+    require: 'ngModel',
+    link: (scope, element, attr, ngModel) ->
+      ngModel.$parsers.push (viewValue) ->
+        dateFilter(viewValue, 'yyyy/MM/dd')
+      return
+  }
