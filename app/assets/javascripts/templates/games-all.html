@@ -1,0 +1,18 @@
+<div layout="column">
+  <md-grid-list
+    md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+    md-row-height-gt-md="1:1" md-row-height="2:2"
+    md-gutter="12px" md-gutter-gt-sm="8px" >
+    <md-grid-tile ng-repeat="game in games"
+        style="background: #ff8a80"
+        md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+      <a ui-sref="home.games.view({id: game.id })">
+        <img ng-if="game.image" ng-src="{{ game.image }}">
+        <img ng-if="!game.image" src="http://vignette1.wikia.nocookie.net/touhou/images/e/ed/Arkham_Horror_revised_box.jpg/revision/latest?cb=20110131185948">
+        <md-grid-tile-footer>
+            <h3>{{ game.name }}</h3>
+        </md-grid-tile-footer>
+      </a>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

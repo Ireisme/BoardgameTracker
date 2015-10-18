@@ -1,11 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
-app = angular.module("sessionApp", ['ui.bootstrap'])
-
-app.controller "SessionNewCtrl", ["$scope", "$http", "$window", 'dateFilter', ($scope, $http, $window, dateFilter) ->
-  $scope.name = "HEY THERE"
+angular.module('BoardgameTracker')
+.controller "SessionNewCtrl", ["$scope", "$http", "$window", 'dateFilter', ($scope, $http, $window, dateFilter) ->
   $scope.session = {
     session_players: []
   }
@@ -54,8 +48,7 @@ app.controller "SessionNewCtrl", ["$scope", "$http", "$window", 'dateFilter', ($
 
   return
   ]
-
-app.directive 'dateOnlyFormat', (dateFilter) ->
+.directive 'dateOnlyFormat', (dateFilter) ->
   {
     require: 'ngModel',
     link: (scope, element, attr, ngModel) ->
