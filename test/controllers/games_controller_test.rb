@@ -8,7 +8,7 @@ class GamesControllerTest < ActionController::TestCase
     }
 
     post :create, {'game_id' => 1, 'game' => @new_game}
-    assert_redirected_to '/'
+    assert_response :success
   end
 
   test 'should get index' do
