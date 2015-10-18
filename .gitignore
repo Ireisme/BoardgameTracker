@@ -19,4 +19,4 @@
 /.idea
 
 # Ignore cache
-/vendor/cache
+/vendor
