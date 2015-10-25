@@ -32,7 +32,7 @@ angular.module('BoardgameTracker')
         {
           name: 'Add'
           type: 'link'
-          state: 'home.players.new'
+          state: 'home.players.add'
           icon: 'fa fa-user-plus'
         }
         {

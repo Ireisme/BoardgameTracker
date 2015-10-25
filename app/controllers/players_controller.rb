@@ -17,6 +17,11 @@ class PlayersController < ApplicationController
     redirect_to root_path
   end
 
+  def view
+    player = Player.find(params[:id])
+    render :json => player
+  end
+
   def show
     session_id = params[:id].to_i
     not_found if session_id < 0
