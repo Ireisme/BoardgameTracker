@@ -33,6 +33,7 @@ gem 'underscore-rails'
 gem 'rails-assets-angular'
 gem 'rails-assets-bootstrap'
 gem 'rails_12factor'
+gem 'rails-assets-angular-mocks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -51,3 +52,20 @@ gem 'devise'
 
 # Add devise support for sending invites by email
 gem 'devise_invitable'
+
+# Add support for testing javascript
+group :development, :test do
+  gem 'teaspoon-mocha'
+  gem 'phantomjs'
+end
+
+# Add support for running tests when files are modifed/created
+group :development do
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'guard-teaspoon'
+end
+
+group :test do
+  gem 'minitest-reporters'
+end
