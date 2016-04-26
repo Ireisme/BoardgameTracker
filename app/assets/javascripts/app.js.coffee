@@ -75,9 +75,12 @@ app = angular.module('BoardgameTracker', [
     $rootScope.$on '$stateChangeStart', (evt, next, nextParams, current, currentParams) ->
       params = undefined
       if next.name != 'login'
-        Auth.currentUser().then((user) ->
-        )
+        console.log 'app.js.coffee'
+        Auth.currentUser({ interceptAuth: false }).then ((user) ->
+          console.log user
+        ),
         (error) ->
+          console.log 'error'
           evt.preventDefault()
           params = JSON.stringify(nextParams)
           $state.go 'login',

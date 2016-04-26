@@ -54,3 +54,5 @@ gem 'devise'
 
 # Add devise support for sending invites by email
 gem 'devise_invitable'
+
+gem "rails-assets-angular-devise"
