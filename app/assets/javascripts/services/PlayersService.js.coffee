@@ -1,6 +1,6 @@
 angular.module('BoardgameTracker').factory 'PlayersService', [
   '$http', '$q'
-  ($http, $q) -> { 
+  ($http, $q) -> {
     GetAll: ->
         q = $q.defer()
         $http.get('/players/list')
@@ -15,7 +15,7 @@ angular.module('BoardgameTracker').factory 'PlayersService', [
           q.resolve(data)
           return
         return q.promise
-    Add: (player) -> 
+    Add: (player) ->
       q = $q.defer()
       $http.post('/players/', player)
       .success (data) ->

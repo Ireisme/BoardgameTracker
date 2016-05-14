@@ -7,11 +7,11 @@
         style="background: #ff8a80"
         md-rowspan="2" md-colspan="2" md-colspan-sm="1"
         layout-align="center center">
-      <a style="text-align: center" ui-sref="home.games.view({id: game.id })">
+      <a style="text-align: center" ui-sref="home.players.view({id: player.id })">
         <img style="max-width: 80%; max-height: 80%;" ng-if="game.image" ng-src="{{ game.image }}">
         <img style="max-width: 80%; max-height: 80%;" ng-if="!game.image" src="http://vignette1.wikia.nocookie.net/touhou/images/e/ed/Arkham_Horror_revised_box.jpg/revision/latest?cb=20110131185948">
         <md-grid-tile-footer>
-            <h3>{{ game.name }}</h3>
+            <h3>{{ player.name }}</h3>
         </md-grid-tile-footer>
       </a>
     </md-grid-tile>
