@@ -1,0 +1,18 @@
+<md-content flex layout="row" layout-align="center center">
+  <form name="gameForm">
+    <md-content layout-padding layout="row" layout-sm="column" >
+        <md-input-container>
+          <label>Name</label>
+          <input ng-model="player.name" required>
+        </md-input-container>
+    </md-content>
+    <md-content layout-padding layout="row" layout-sm="column">
+      <md-input-container>
+        <label>Powers</label>
+        <input ng-model="player.powers">
+      </md-input-container>
+    </md-content>
+    <md-button ng-click="add()" ng-disabled="!gameForm.$valid" class="md-raised md-primary">Add</md-button>
+    <md-button ng-click="cancel()" class="md-raised md-warn">Cancel</md-button>
+  </form>
+</md-content>

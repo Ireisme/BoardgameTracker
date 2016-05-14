@@ -1,0 +1,25 @@
+<md-content flex layout="row" layout-align="center center">
+  <form name="gameForm">
+    <md-content layout-padding layout="row" layout-sm="column">
+        <md-input-container>
+          <label>Name</label>
+          <input ng-model="game.name" required>
+        </md-input-container>
+        <md-input-container>
+          <label>Description</label>
+          <input ng-model="game.description">
+        </md-input-container>
+    </md-content>
+    <md-content layout-padding layout="row" layout-sm="column">
+      <md-switch ng-model="game.coop" class="md-primary" aria-label="Co-op">
+        Co-op
+      </md-switch>
+      <md-input-container>
+        <label>Image Url</label>
+        <input ng-model="game.image">
+      </md-input-container>
+    </md-content>
+    <md-button ng-click="add()" ng-disabled="!gameForm.$valid" class="md-raised md-primary">Add</md-button>
+    <md-button ng-click="cancel()" class="md-raised md-warn">Cancel</md-button>
+  </form>
+</md-content>

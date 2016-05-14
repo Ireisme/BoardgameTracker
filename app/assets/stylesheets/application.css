@@ -10,15 +10,18 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap
+ *= require angular-material
  *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
-body {
-    padding-top: 50px;
+
+md-toolbar h3 {
+  margin: auto;
 }
-.template {
-    padding: 40px 15px;
+
+game-grid img {
+  max-width: 100%;
+  max-height: 100%;
 }

@@ -7,14 +7,19 @@ class PlayersController < ApplicationController
   end
 
   def list
-    players = get_filtered_players
+    players = params[:include_unknown] ? Player.all : get_filtered_players
     render :json => players
   end
 
   def create
     @player = Player.new(player_params)
     @player.save
-    redirect_to root_path
+    render :json => @player.id
+  end
+
+  def view
+    player = Player.find(params[:id])
+    render :json => player
   end
 
   def show

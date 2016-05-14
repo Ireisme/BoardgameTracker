@@ -21,6 +21,7 @@ class Game::SessionsController < ApplicationController
 
     @session = Session.new
     @session.game_id = params[:game_id]
+    @session.played = params[:played]
     @session.save
 
     players.each do |player|
@@ -42,6 +43,6 @@ class Game::SessionsController < ApplicationController
 
   private
   def session_params
-    params.require(:session).permit(:players, :game_id)
+    params.require(:session).permit(:players, :game_id, :played)
   end
 end

@@ -10,3 +10,5 @@ script:
 before_script:
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database gametracker_test' -U postgres
+- npm install bower -g
+- bower install
