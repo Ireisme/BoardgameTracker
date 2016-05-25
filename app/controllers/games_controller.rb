@@ -33,7 +33,7 @@ class GamesController < ApplicationController
 
   def list
     games = Game.all
-    render :json => games
+    render :json => games, each_serializer: Games::ListSerializer
   end
 
   private

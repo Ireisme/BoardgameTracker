@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
 
   def list
     players = params[:include_unknown] ? Player.all : get_filtered_players
-    render :json => players
+    render :json => players, each_serializer: Players::ListSerializer
   end
 
   def create
