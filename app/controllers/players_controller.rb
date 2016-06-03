@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
     render :json => @player.id
   end
 
-  def view
+  def show
     session_id = params[:id].to_i
     not_found if session_id < 0
 

@@ -20,7 +20,7 @@ class GamesControllerTest < ActionController::TestCase
   test 'should get individual game from view' do
     @game = Game.find(ActiveRecord::FixtureSet.identify(:game_one))
 
-    get :view, id: @game.id, :format => "json"
+    get :show, id: @game.id, :format => "json"
     assert_response :success
     result = JSON.parse(response.body)
     assert_equal @game.name, result["name"]

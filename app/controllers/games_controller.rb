@@ -1,6 +1,4 @@
 class GamesController < ApplicationController
-  def new
-  end
 
   def create
     @game = Game.new(game_params)
@@ -8,7 +6,7 @@ class GamesController < ApplicationController
     render :json => @game.id
   end
 
-  def view
+  def show
     game = Game.find(params[:id])
     @played_count = Session.where('game_id = ?', params[:id]).count
 

@@ -4,14 +4,14 @@ Rails.application.routes.draw do
     resources :sessions
     collection do
       get 'list'
-      get 'view'
+      get 'show'
     end
   end
   
   resources :players do
     collection do
       get 'list'
-      get 'view'
+      get 'show'
     end
   end
 

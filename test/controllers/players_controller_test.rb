@@ -21,12 +21,12 @@ class PlayersControllerTest < ActionController::TestCase
 
   test 'should not show unknown user page' do
     assert_raises(ActionController::RoutingError) do
-      get(:view, {'id' => players(:unknown).id})
+      get(:show, {'id' => players(:unknown).id})
     end
   end
 
   test 'should show valid players' do
-    get(:view, {'id' => players(:brian).id})
+    get(:show, {'id' => players(:brian).id})
     assert_response :success
   end
 
