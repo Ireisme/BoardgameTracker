@@ -10,19 +10,7 @@ class GamesController < ApplicationController
     game = Game.find(params[:id])
     @played_count = Session.where('game_id = ?', params[:id]).count
 
-    @winner = game.best_player
-    @loser = game.worst_player
-
-    if !@winner.nil?
-      @winner_percentage = @winner.win_percentage * 100
-      @winning_player = Player.find(@winner.player_id)
-    end
-
-    if !@loser.nil?
-      @loser_percentage =  @loser.win_percentage * 100
-      @losing_player = Player.find(@loser.player_id)
-    end
-    render :json => game
+    render :json => game, :serializer => Games::ShowSerializer
   end
 
   def list
