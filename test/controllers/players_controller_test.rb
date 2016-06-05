@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class PlayersControllerTest < ActionController::TestCase
+  test 'should post create' do
+    @new_player = {
+        'name' => 'Test',
+        'powers' => 'godmode'
+    }
+
+    post :create, {'player_id' => 1, 'player' => @new_player}
+    assert_response :success
+  end
+
   test 'should not show unknown player in list of players' do
     get :list
     def json_response
       ActiveSupport::JSON.decode @response.body
     end
     assert_equal (Player.count - 1), json_response.count
-  end
-
-  test 'should not display unknown player in index of players' do
-    get :index
-
-    assert_equal (Player.count - 1), assigns(:players).count
   end
 
   test 'should not show unknown user page' do

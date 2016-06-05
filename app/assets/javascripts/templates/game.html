@@ -7,3 +7,32 @@
     <span ng-show="game.coop"><i class="fa fa-user-plus"></i></span>
   </div>
 </div>
+
+<div layout="row" layout-xs="column">
+    <div flex>
+        <h3>Best Player</h3>
+        <div layout="column">
+            <div layout="row">
+                <div flex>Name</div>
+                <div flex>{{game.best_player.name}}</div>
+            </div>
+            <div layout="row">
+                <div flex>Percentage</div>
+                <div flex>{{game.best_player.percentage}}%</div>
+            </div>
+        </div>
+    </div>
+    <div flex>
+        <h3>Worst Player</h3>
+        <div layout="column">
+            <div layout="row">
+                <div flex>Name</div>
+                <div flex>{{game.worst_player.name}}</div>
+            </div>
+            <div layout="row">
+                <div flex>Percentage</div>
+                <div flex>{{game.worst_player.percentage}}%</div>
+            </div>
+        </div>
+    </div>
+</div>

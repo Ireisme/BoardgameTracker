@@ -10,7 +10,7 @@ angular.module('BoardgameTracker').factory 'PlayersService', [
         return q.promise
     Get: (id) ->
         q = $q.defer()
-        $http.get('/players/view/?id=' + id)
+        $http.get('/players/' + id)
         .success (data) ->
           q.resolve(data)
           return
