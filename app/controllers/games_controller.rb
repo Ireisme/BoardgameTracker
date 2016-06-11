@@ -20,7 +20,7 @@ class GamesController < ApplicationController
 
   private
     def game_params
-      p = params.require(:game).permit(:name, :coop, :game_type, :description, :image)
+      p = params.require(:game).permit(:name, :game_type, :description, :image)
       p[:game_type] = p[:game_type].to_i unless p[:game_type].nil?
       return p
     end

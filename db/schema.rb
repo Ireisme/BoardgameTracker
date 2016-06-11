@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610052711) do
+ActiveRecord::Schema.define(version: 20160611052115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20160610052711) do
   create_table "games", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "coop"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
