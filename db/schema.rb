@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160611052115) do
   create_table "session_players", force: true do |t|
     t.integer  "score"
     t.integer  "placing"
-    t.integer  "team_number"
+    t.string   "team_number"
     t.integer  "player_id"
     t.integer  "session_id"
     t.datetime "created_at"
