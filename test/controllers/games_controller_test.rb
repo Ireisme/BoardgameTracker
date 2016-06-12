@@ -2,12 +2,13 @@ require 'test_helper'
 
 class GamesControllerTest < ActionController::TestCase
   test 'should post create' do
-    @new_game = {
+    new_game = {
         'name' => 'test',
-        'description' => 'test desc'
+        'description' => 'test desc',
+        'game_type' => Game.game_types[:mixed]
     }
 
-    post :create, {'game_id' => 1, 'game' => @new_game}
+    post :create, {'game_id' => 1, 'game' => new_game}
     assert_response :success
   end
 
@@ -18,11 +19,11 @@ class GamesControllerTest < ActionController::TestCase
   end
 
   test 'should get individual game from view' do
-    @game = Game.find(ActiveRecord::FixtureSet.identify(:game_one))
+    game = Game.find(ActiveRecord::FixtureSet.identify(:game_one))
 
-    get :show, id: @game.id, :format => "json"
+    get :show, id: game.id, :format => "json"
     assert_response :success
     result = JSON.parse(response.body)
-    assert_equal @game.name, result["name"]
+    assert_equal game.name, result["name"]
   end
 end

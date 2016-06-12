@@ -1,8 +1,9 @@
 angular.module('BoardgameTracker')
 .controller 'GamesAddCtrl', ['$scope', '$stateParams', '$state', 'GamesService', ($scope, $stateParams, $state, GamesService) ->
-  $scope.game = 
-    coop: false
-    
+  GamesService.New()
+  .then (data) ->
+    $scope.game = data
+
   $scope.add = -> 
   	GamesService.Add($scope.game)
     .then (data) -> 

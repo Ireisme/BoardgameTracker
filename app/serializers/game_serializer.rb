@@ -1,3 +1,3 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :name, :coop, :description, :image
+  attributes :id, :name, :game_type, :description, :image
 end

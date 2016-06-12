@@ -1,4 +1,9 @@
 class GamesController < ApplicationController
+  def new
+    game = Game.new
+
+    render :json => game, :serializer => Games::NewSerializer
+  end
 
   def create
     @game = Game.new(game_params)
@@ -20,6 +25,8 @@ class GamesController < ApplicationController
 
   private
     def game_params
-      params.require(:game).permit(:name, :coop, :description, :image)
+      p = params.require(:game).permit(:name, :game_type, :description, :image)
+      p[:game_type] = p[:game_type].to_i unless p[:game_type].nil?
+      return p
     end
 end
