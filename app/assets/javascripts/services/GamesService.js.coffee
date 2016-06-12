@@ -22,5 +22,12 @@ angular.module('BoardgameTracker').factory 'GamesService', [
         q.resolve(data)
         return
       return q.promise
+    New: ->
+      q = $q.defer()
+      $http.get('/games/new')
+      .success (data) ->
+        q.resolve(data)
+        return
+      return q.promise
   }
 ]
