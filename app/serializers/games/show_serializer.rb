@@ -2,10 +2,22 @@ class Games::ShowSerializer < GameSerializer
   attributes :best_player, :worst_player
 
   def best_player
-    {:percent => object.best_player.win_percent, :name => object.best_player.player.name }
+    stats = object.best_player
+    return nil unless stats
+
+    {
+        :percent => stats.win_percent,
+        :name => stats.player.name
+    }
   end
 
   def worst_player
-    {:percent => object.worst_player.win_percent, :name => object.worst_player.player.name }
+    stats = object.worst_player
+    return nil unless stats
+
+    {
+        :percent => stats.win_percent,
+        :name => stats.player.name
+    }
   end
 end

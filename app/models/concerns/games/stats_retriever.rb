@@ -27,6 +27,7 @@ module Games
         end
 
         def to_stats (game_total)
+          return nil unless game_total
           player_stats = Games::PlayerStats.new
           player_stats.win_percent = game_total.win_percentage
           player_stats.player = Player.find(game_total.player_id)
