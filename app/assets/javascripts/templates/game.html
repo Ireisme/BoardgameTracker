@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div layout="row" layout-xs="column">
+<div layout="row" layout-xs="column" ng-if="game.best_player">
     <div flex>
         <h3>Best Player</h3>
         <div layout="column">
@@ -36,3 +36,4 @@
         </div>
     </div>
 </div>
+<h3 ng-if="game.best_player == null">No Stats (Yet)</h3>
