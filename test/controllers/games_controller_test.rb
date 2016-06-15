@@ -26,4 +26,19 @@ class GamesControllerTest < ActionController::TestCase
     result = JSON.parse(response.body)
     assert_equal game.name, result["name"]
   end
+
+  test 'should have no stats on new game' do
+    new_game = {
+        'name' => 'test',
+        'description' => 'test desc',
+        'game_type' => Game.game_types[:mixed]
+    }
+    post :create, {'game_id' => 1, 'game' => new_game}
+
+    get :show, id: response.body, :format => "json"
+
+    parsed_game = JSON.parse(response.body)
+    assert_nil parsed_game[:best_player]
+    assert_nil parsed_game[:worst_player]
+  end
 end
