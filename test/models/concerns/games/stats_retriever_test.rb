@@ -12,6 +12,17 @@ class StatsRetrieverTest < ActionController::TestCase
     assert_includes [winning_player1, winning_player2], game.best_player.player
   end
 
+  test 'should return null as worst player when all players are tied for stats' do
+    game = create_game
+    player1 = create_player
+    player2 = create_player('test2')
+
+    create_session(game, player1)
+    create_session(game, player2)
+
+    assert_nil game.worst_player
+  end
+
   private
     def create_game
       game = Game.new(:name => 'test', :game_type => Game.game_types[:mixed])

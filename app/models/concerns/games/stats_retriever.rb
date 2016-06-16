@@ -7,7 +7,13 @@ module Games
       end
 
       def worst_player
-        return to_stats(game_totals.last)
+        stats = to_stats(game_totals.last)
+
+        if (!best_player.nil? && !stats.nil? && best_player.win_percent == stats.win_percent)
+          return nil
+        else
+          return stats
+        end
       end
 
       private
