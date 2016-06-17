@@ -9,7 +9,7 @@
 </div>
 
 <div layout="row" layout-xs="column" ng-if="game.best_player">
-    <div flex>
+    <div flex="50">
         <h3>Best Player</h3>
         <div layout="column">
             <div layout="row">
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div flex>
+    <div flex="50" ng-if="game.worst_player">
         <h3>Worst Player</h3>
         <div layout="column">
             <div layout="row">
