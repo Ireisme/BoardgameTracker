@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Game::SessionsControllerTest < ActionController::TestCase
+class SessionsControllerTest < ActionController::TestCase
   test 'should post create' do
     @session_players = [
         {
@@ -62,8 +62,8 @@ class Game::SessionsControllerTest < ActionController::TestCase
   #   assert_response :success
   # end
 
-  test 'should get index' do
-    get :index
+  test 'should get list' do
+    get :list
     assert_response :success
   end
 

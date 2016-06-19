@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :games do
     resources :sessions
     collection do
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'show'
     end
   end
-  
+
   resources :players do
     collection do
       get 'list'
@@ -15,14 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :game do
-    resources :sessions, except: [:index, :new] do
-      collection do
-        get 'new', as: 'new'
-        get 'index', as: 'index'
-      end
-      resources :session_players
+  resources :sessions do
+    collection do
+      get 'new', as: 'new'
+      get 'list', as: 'list'
     end
+    resources :session_players
   end
 
   devise_for :users, :skip => [:registrations]

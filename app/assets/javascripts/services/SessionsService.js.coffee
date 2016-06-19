@@ -1,23 +1,23 @@
-angular.module('BoardgameTracker').factory 'PlayersService', [
+angular.module('BoardgameTracker').factory 'SessionsService', [
   '$http', '$q'
   ($http, $q) -> {
-    GetAll: (unknown) ->
+    GetAll: ->
         q = $q.defer()
-        $http.get('/players/list', { include_unknown: unknown })
+        $http.get('/sessions')
         .success (data) ->
           q.resolve(data)
           return
         return q.promise
     Get: (id) ->
         q = $q.defer()
-        $http.get('/players/' + id)
+        $http.get('/sessions/' + id)
         .success (data) ->
           q.resolve(data)
           return
         return q.promise
-    Add: (player) ->
+    Add: (session) ->
       q = $q.defer()
-      $http.post('/players/', player)
+      $http.post('/sessions/', session)
       .success (data) ->
         q.resolve(data)
         return
