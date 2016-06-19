@@ -1,8 +1,13 @@
-class Game::SessionsController < ApplicationController
+class SessionsController < ApplicationController
   protect_from_forgery except: :create
 
-  def index
-    @sessions = Session.all
+  def list
+    sessions = Session.all
+    render :json => sessions
+  end
+
+  def by_game
+    @sessions = Session.find_by game_id params[:game_id]
   end
 
   def new
@@ -34,7 +39,7 @@ class Game::SessionsController < ApplicationController
       @session_player.save
     end
 
-    render :json => { 'url' => root_url }
+    render :json => @session.id
   end
 
   def show
