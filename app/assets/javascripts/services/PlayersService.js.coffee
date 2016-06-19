@@ -1,9 +1,9 @@
 angular.module('BoardgameTracker').factory 'PlayersService', [
   '$http', '$q'
   ($http, $q) -> {
-    GetAll: ->
+    GetAll: (unknown) ->
         q = $q.defer()
-        $http.get('/players/list')
+        $http.get('/players/list', { include_unknown: unknown })
         .success (data) ->
           q.resolve(data)
           return
