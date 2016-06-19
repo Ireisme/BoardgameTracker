@@ -1,0 +1,158 @@
+<md-content>
+  <form name="sessionForm">
+    <div layout="row" layout-align="center center" layout-padding>
+      <div flex>
+        <md-input-container>
+          <label>Game</label>
+          <md-select placeholder="Select a Game" ng-model="session.game_id" required>
+            <md-option ng-value="game.id" ng-repeat="game in games">{{ game.name }}</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div flex>
+        <md-input-container>
+          <label>Date Played</label>
+          <md-datepicker ng-model="session.played" md-placeholder="Enter the date played"
+            md-open-on-focus required></md-datepicker>
+        </md-input-container>
+      </div>
+    </div>
+    <div layout-padding>
+      <md-grid-list
+        md-cols="5" md-cols-sm="3" md-cols-xs="3"
+        md-row-height="350px"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+        <md-grid-tile ng-repeat="session_player in session.session_players"
+          style="background: #ff8a80"
+          md-rowspan="1" md-colspan="1">
+          <div layout="column" layout-align="center center">
+            <div flex>
+              <h3>{{ session_player.player_name }}</h3>
+            </div>
+            <div flex>
+              <md-input-container>
+                <label>Placing</label>
+                <input ng-model="session_player.placing" required>
+              </md-input-container>
+              <md-input-container>
+                <label>Score</label>
+                <input ng-model="session_player.score" required>
+              </md-input-container>
+              <md-input-container >
+                <label>Team</label>
+                <input ng-model="session_player.team" required>
+              </md-input-container>
+            </div>
+          </div>
+        </md-grid-tile>
+        <md-grid-tile
+          style="background: #ff8a80"
+          md-rowspan="1" md-colspan="1"
+          layout-align="center center">
+          <md-select placeholder="Add a Player" ng-model="session.newPlayer" md-on-close="playerSelected()">
+            <md-option ng-value="player" ng-repeat="player in availablePlayers()">{{ player.name }}</md-option>
+          </md-select>
+        </md-grid-tile>
+      </md-grid-list>
+    </div>
+    <div layout-padding layout="row" layout-align="end end">
+      <md-button class="md-raised md-primary"
+        ng-disabled="!sessionForm.$valid || session.session_players.length == 0"
+        ng-click="saveSession()">Save</md-button>
+      <md-button class="md-raised md-warn" ui-sref="home.sessions.all">Cancel</md-button>
+    </div>
+  </form>
+</md-content>
+      <!-- <div class="row">
+        <div class="col-md-5">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <span class="panel-title">Choose Game</span>
+            </div>
+            <div class="panel-body">
+              <select ng-model="session.game_id" ng-options="game.id as game.name for game in games"></select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <span class="panel-title">Choose Date</span>
+            </div>
+            <div class="panel-body">
+              <p class="input-group">
+                <input type="text" class="form-control" ng-model="session.played" datepicker-popup="yyyy/MM/dd" is-open="status.opened" close-text="Close" show-weeks="false" max-date="maxDate" date-only-format/>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <span class="panel-title">Session</span>
+            </div>
+            <div class="panel-body">
+              <form name="sessionForm">
+                <div ng-repeat="player in session.session_players">
+                  <div class="row">
+                    <div class="col-md-2">
+                      {{ player.player_name }}
+                    </div>
+                    <div class="col-md-9">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Place:</label>
+                            <input class="form-control" ng-model="player.placing" required />
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Team:</label>
+                            <input class="form-control" ng-model="player.team" />
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Score:</label>
+                            <input class="form-control" ng-model="player.score" required />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1">
+                      <a ng-click="removeFromSession($index)"><span  class="fa fa-times"></span></a>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-primary"
+                        ng-click="saveSession()"
+                        ng-disabled="sessionForm.$invalid || session.session_players.length == 0 || !session.game_id || !session.played">
+                  Save Session
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <span class="panel-title">Add Players</span>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <ll ng-repeat="player in players">
+                  <div ng-show="!player.added">
+                    <a ng-click="addToSession(player)">{{ player.name }}</a>
+                  </div>
+                </ll>
+              </ul>
+            </div>
+          </div>
+         </div>
+      </div> -->

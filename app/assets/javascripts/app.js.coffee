@@ -38,7 +38,7 @@ app = angular.module('BoardgameTracker', [
       templateUrl: 'game.html'
       controller: 'GameCtrl'
       title: '{{ game.name }}'
-      resolve: 
+      resolve:
         game: ($stateParams, GamesService) ->
           return GamesService.Get($stateParams.id)
     .state 'home.players',
@@ -61,9 +61,24 @@ app = angular.module('BoardgameTracker', [
       templateUrl: 'player.html'
       controller: 'PlayerCtrl'
       title: '{{ player.name }}'
-      resolve: 
+      resolve:
         game: ($stateParams, PlayersService) ->
           return PlayersService.Get($stateParams.id)
+    .state 'home.sessions',
+      url: '/sessions'
+      abstract: true,
+      template: '<ui-view></ui-view>'
+      title: 'Sessions'
+    .state 'home.sessions.all',
+      url: '/all'
+      templateUrl: 'sessions-all.html'
+      controller: 'SessionsAllCtrl'
+      title: 'Sessions'
+    .state 'home.sessions.add',
+      url: '/add'
+      templateUrl: 'sessions-add.html'
+      controller: 'SessionsAddCtrl'
+      title: 'Add Session'
 
     $urlRouterProvider.otherwise 'home'
     return
