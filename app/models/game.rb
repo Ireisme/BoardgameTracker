@@ -6,7 +6,5 @@ class Game < ActiveRecord::Base
       coop: 2
   }
 
-  default_scope { order('name asc') }
-
   include Games::StatsRetriever
 end
