@@ -47,13 +47,15 @@ class GameStatsTest < ActionController::TestCase
     player = create_player
     game_one = create_game
     game_two = create_game ('other')
-    2.times { create_session(game_one, winning_players: [player]) }
-    create_session(game_one, winning_players: [player], losing_players: [player])
-    2.times { create_session(game_two, winning_players: [player]) }
+    create_session(game_one, winning_players: [player])
+    create_session(game_one, losing_players: [player])
+    create_session(game_two, winning_players: [player])
+    create_session(game_two, losing_players: [player])
+    2.times { create_session(game_one, winning_players: [player], losing_players: [player]) }
 
     best_game = PlayerStatistic.new(player.id).best_game
 
     assert_equal game_one, best_game.game
-    assert_equal 1, best_game.win_percent
+    assert_equal 0.75, best_game.win_percent
   end
 end
