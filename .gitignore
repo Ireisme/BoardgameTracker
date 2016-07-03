@@ -5,30 +5,30 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+/rails/.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+/rails/db/*.sqlite3
+/rails/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+/rails/log/*.log
+/rails/tmp
 
 # Ignore RubyMine User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
+/rails/.idea/workspace.xml
+/rails/.idea/tasks.xml
+/rails/.idea/dictionaries
+/rails/.idea/vcs.xml
+/rails/.idea/jsLibraryMappings.xml
 
 # Ignore Rubymine sensitive or high-churn files:
-.idea/dataSources.ids
-.idea/dataSources.xml
-.idea/dataSources.local.xml
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+/rails/.idea/dataSources.ids
+/rails/.idea/dataSources.xml
+/rails/.idea/dataSources.local.xml
+/rails/.idea/sqlDataSources.xml
+/rails/.idea/dynamic.xml
+/rails/.idea/uiDesigner.xml
 
 # Ignore cache
-/vendor
+/rails/vendor
