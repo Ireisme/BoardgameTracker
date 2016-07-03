@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class GamesControllerTest < ActionController::TestCase
-  test 'should post create' do
+  should 'post create' do
     new_game = {
         'name' => 'test',
         'description' => 'test desc',
@@ -12,13 +12,13 @@ class GamesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should get list' do
+  should 'get list' do
     get :list
     assert_response :success
     assert_equal 2, JSON.parse(response.body).size
   end
 
-  test 'should get individual game from view' do
+  should 'get individual game from view' do
     game = Game.find(ActiveRecord::FixtureSet.identify(:game_one))
 
     get :show, id: game.id, :format => "json"
@@ -27,7 +27,7 @@ class GamesControllerTest < ActionController::TestCase
     assert_equal game.name, result["name"]
   end
 
-  test 'should have no stats on new game' do
+  should 'have no stats on new game' do
     new_game = {
         'name' => 'test',
         'description' => 'test desc',

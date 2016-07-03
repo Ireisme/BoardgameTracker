@@ -57,3 +57,6 @@ gem 'rails-assets-angular-devise'
 
 # Cleaner JSON responses
 gem 'active_model_serializers', '~> 0.10.0'
+
+# Cleaner tests
+gem 'shoulda-context', group: [:test]

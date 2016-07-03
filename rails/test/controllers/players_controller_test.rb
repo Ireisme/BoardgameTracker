@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class PlayersControllerTest < ActionController::TestCase
-  test 'should post create' do
+  should 'post create' do
     @new_player = {
         'name' => 'Test',
         'powers' => 'godmode'
@@ -11,7 +11,7 @@ class PlayersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should not show unknown player in list of players' do
+  should 'not show unknown player in list of players' do
     get :list
     def json_response
       ActiveSupport::JSON.decode @response.body
@@ -19,13 +19,13 @@ class PlayersControllerTest < ActionController::TestCase
     assert_equal (Player.count - 1), json_response.count
   end
 
-  test 'should not show unknown user page' do
+  should 'not show unknown user page' do
     assert_raises(ActionController::RoutingError) do
       get(:show, {'id' => players(:unknown).id})
     end
   end
 
-  test 'should show valid players' do
+  should 'show valid players' do
     get(:show, {'id' => players(:brian).id})
     assert_response :success
   end
