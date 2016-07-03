@@ -1,4 +1,4 @@
-{<img src="https://travis-ci.org/Ireisme/GameTracker.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Ireisme/GameTracker]
+{<img src="https://travis-ci.org/Ireisme/BoardgameTracker.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/Ireisme/GameTracker]
 
 == GameTracker
 
