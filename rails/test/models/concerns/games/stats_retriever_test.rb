@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StatsRetrieverTest < ActionController::TestCase
+class StatsRetrieverTest < ActiveSupport::TestCase
   include GameCreation, PlayerCreation, SessionCreation
 
   test 'should return a player as best player when tied for best' do

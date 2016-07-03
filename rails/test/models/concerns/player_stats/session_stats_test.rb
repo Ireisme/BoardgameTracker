@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SessionStatsTest < ActionController::TestCase
+class SessionStatsTest < ActiveSupport::TestCase
   include GameCreation, PlayerCreation, SessionCreation
 
   test 'should return number of sessions played' do

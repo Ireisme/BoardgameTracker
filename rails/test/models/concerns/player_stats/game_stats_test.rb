@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GameStatsTest < ActionController::TestCase
+class GameStatsTest < ActiveSupport::TestCase
   include GameCreation, PlayerCreation, SessionCreation
 
   test 'should calculate best game based upon win %' do
