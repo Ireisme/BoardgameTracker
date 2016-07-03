@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionStatsTest < ActiveSupport::TestCase
   include GameCreation, PlayerCreation, SessionCreation
 
-  test 'should return number of sessions played' do
+  should 'return number of sessions played' do
     player = create_player
     create_session(create_game, winning_players: [player])
 
@@ -12,7 +12,7 @@ class SessionStatsTest < ActiveSupport::TestCase
     assert_equal 1, session_count
   end
 
-  test 'should count sessions with duplicate player once' do
+  should 'count sessions with duplicate player once' do
     player = create_player
     create_session(create_game, winning_players: [player, player])
 
@@ -21,7 +21,7 @@ class SessionStatsTest < ActiveSupport::TestCase
     assert_equal 1, session_count
   end
 
-  test 'should calculate favorite game based upon most sessions played' do
+  should 'calculate favorite game based upon most sessions played' do
     player = create_player
     game_one = create_game('favorite')
     game_two = create_game
@@ -33,7 +33,7 @@ class SessionStatsTest < ActiveSupport::TestCase
     assert_equal game_one, favorite_game
   end
 
-  test 'should count sessions with duplicate players once when calculating favorite game' do
+  should 'count sessions with duplicate players once when calculating favorite game' do
     player = create_player
     game_one = create_game('favorite')
     game_two = create_game

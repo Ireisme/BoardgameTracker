@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
-  test 'should post create' do
+  should 'post create' do
     @session_players = [
         {
             'player_id' => 1,
@@ -14,7 +14,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should not be able to add player twice to session' do
+  should'not be able to add player twice to session' do
     @session_players = [
         {
             'player_id' => players(:josh).id,
@@ -33,7 +33,7 @@ class SessionsControllerTest < ActionController::TestCase
     end
   end
 
-  test 'should be able to add unknown player multiple times to session' do
+  should'be able to add unknown player multiple times to session' do
     @session_players = [
         {
             'player_id' => players(:brian).id,
@@ -57,12 +57,12 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   # TODO Add this back when show is available
-  # test 'should get show' do
+  # should'should get show' do
   #   get(:show, {'id' => '1'})
   #   assert_response :success
   # end
 
-  test 'should get list' do
+  should'get list' do
     get :list
     assert_response :success
   end

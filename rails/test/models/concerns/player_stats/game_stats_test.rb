@@ -3,7 +3,7 @@ require 'test_helper'
 class GameStatsTest < ActiveSupport::TestCase
   include GameCreation, PlayerCreation, SessionCreation
 
-  test 'should calculate best game based upon win %' do
+  should 'calculate best game based upon win %' do
     player = create_player
     other_player = create_player
     game_one = create_game ('best')
@@ -18,7 +18,7 @@ class GameStatsTest < ActiveSupport::TestCase
     assert_equal 1, best_game.win_percent
   end
 
-  test 'should calculate best game win % correctly for normal case' do
+  should 'calculate win % correctly for normal case' do
     player = create_player
     game = create_game ('best')
     3.times { create_session(game, winning_players: [player]) }
@@ -30,7 +30,7 @@ class GameStatsTest < ActiveSupport::TestCase
     assert_equal 0.75, best_game.win_percent
   end
 
-  test 'should chose an arbitrary best game when multiple are tied' do
+  should 'chose an arbitrary game when multiple are tied' do
     player = create_player
     game_one = create_game
     game_two = create_game ('other')
@@ -43,7 +43,7 @@ class GameStatsTest < ActiveSupport::TestCase
     assert_equal 1, best_game.win_percent
   end
 
-  test 'should choose best placing in game when playing as multiple players for best game calculation' do
+  should 'choose best placing in game when playing as multiple players' do
     player = create_player
     game_one = create_game
     game_two = create_game ('other')
