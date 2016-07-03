@@ -19,7 +19,7 @@ class GamesController < ApplicationController
   end
 
   def list
-    games = Game.all
+    games = Game.order('name').all
     render :json => games, each_serializer: Games::ListSerializer
   end
 
