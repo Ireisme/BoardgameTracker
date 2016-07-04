@@ -3,7 +3,10 @@ var webpack = require('webpack-stream');
 var templateCache = require('gulp-angular-templatecache');
 var browserSync = require('browser-sync');
 
-gulp.task('templates', function() {
+gulp.task('views', function() {
+  gulp.src(['index.html'])
+    .pipe(gulp.dest('build/'))
+
   return gulp.src('app/templates/**/*.html')
     .pipe(templateCache({
       moduleSystem: 'browserify',
@@ -13,10 +16,15 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('webpack', ['templates'], function() {
+gulp.task('webpack', ['views'], function() {
   return gulp.src('app/app.js.coffee')
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('styles', function() {
+  return gulp.src('css/**/*.css')
+    .pipe(gulp.dest('build/css/'));
 });
 
 gulp.task('serve', function() {
@@ -28,4 +36,4 @@ gulp.task('serve', function() {
   })
 });
 
-gulp.task('dev', ['templates', 'webpack', 'serve']);
+gulp.task('dev', ['views', 'webpack', 'styles', 'serve']);

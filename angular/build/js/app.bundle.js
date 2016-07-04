@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var angular, app, config, run;
+	var angular, app, config, configuration, run;
 
 	__webpack_require__(1);
 
@@ -56,15 +56,19 @@
 
 	angular = __webpack_require__(2);
 
-	config = __webpack_require__(10);
-
-	run = __webpack_require__(11);
-
 	app = angular.module('BoardgameTracker', ['ngMaterial', 'ui.router', 'ng-token-auth']);
 
-	__webpack_require__(13);
+	configuration = __webpack_require__(10);
 
-	__webpack_require__(24);
+	app.constant('SERVER_URI', configuration.SERVER_URI);
+
+	config = __webpack_require__(11);
+
+	run = __webpack_require__(12);
+
+	__webpack_require__(14);
+
+	__webpack_require__(25);
 
 	app.config(config);
 
@@ -73129,9 +73133,18 @@
 /* 10 */
 /***/ function(module, exports) {
 
+	module.exports = {
+		"SERVER_URI": "http://localhost:3000"
+	};
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
 	module.exports = function($stateProvider, $urlRouterProvider, $authProvider) {
 	  $authProvider.configure({
-	    apiUrl: 'http://localhost:3000'
+	    apiUrl: 'http://localhost:3000',
+	    storage: 'localStorage'
 	  });
 	  $stateProvider.state('login', {
 	    url: '/login',
@@ -73216,12 +73229,12 @@
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function($rootScope, $state, $auth, $templateCache) {
 	  var templates;
-	  templates = __webpack_require__(12);
+	  templates = __webpack_require__(13);
 	  templates($templateCache);
 	  return $rootScope.$on('$stateChangeStart', function(evt, next, nextParams, current, currentParams) {
 	    var params;
@@ -73246,7 +73259,7 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict'; module.exports = function($templateCache) {
@@ -73265,26 +73278,26 @@
 	module.exports.$inject = ["$templateCache"];
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var angular = __webpack_require__(2);
 	var app = angular.module('BoardgameTracker');
 
-	app.controller('GameCtrl', __webpack_require__(14));
-	app.controller('GamesAddCtrl', __webpack_require__(15));
-	app.controller('GamesAllCtrl', __webpack_require__(16));
-	app.controller('HomeCtrl', __webpack_require__(17));
-	app.controller('LoginCtrl', __webpack_require__(18));
-	app.controller('PlayerCtrl', __webpack_require__(19));
-	app.controller('PlayersAddCtrl', __webpack_require__(20));
-	app.controller('PlayersAllCtrl', __webpack_require__(21));
-	app.controller('SessionsAddCtrl', __webpack_require__(22));
-	app.controller('SessionsAllCtrl', __webpack_require__(23));
+	app.controller('GameCtrl', __webpack_require__(15));
+	app.controller('GamesAddCtrl', __webpack_require__(16));
+	app.controller('GamesAllCtrl', __webpack_require__(17));
+	app.controller('HomeCtrl', __webpack_require__(18));
+	app.controller('LoginCtrl', __webpack_require__(19));
+	app.controller('PlayerCtrl', __webpack_require__(20));
+	app.controller('PlayersAddCtrl', __webpack_require__(21));
+	app.controller('PlayersAllCtrl', __webpack_require__(22));
+	app.controller('SessionsAddCtrl', __webpack_require__(23));
+	app.controller('SessionsAllCtrl', __webpack_require__(24));
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, $stateParams, GamesService) {
@@ -73306,7 +73319,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, $stateParams, $state, GamesService) {
@@ -73329,7 +73342,7 @@
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, GamesService) {
@@ -73342,7 +73355,7 @@
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, $log, $state, $timeout, $location, $interpolate) {
@@ -73358,7 +73371,7 @@
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, $state, $stateParams, $auth) {
@@ -73380,7 +73393,7 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, $stateParams, PlayersService) {
@@ -73393,7 +73406,7 @@
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, $stateParams, $state, PlayersService) {
@@ -73413,7 +73426,7 @@
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, PlayersService) {
@@ -73426,7 +73439,7 @@
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, $state, GamesService, PlayersService, SessionsService, dateFilter) {
@@ -73473,7 +73486,7 @@
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	module.exports = function($scope, SessionsService) {
@@ -73486,27 +73499,27 @@
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var angular = __webpack_require__(2);
 	var app = angular.module('BoardgameTracker');
 
-	app.factory('GamesService', __webpack_require__(25));
-	app.factory('PlayersService', __webpack_require__(26));
-	app.factory('SessionsService', __webpack_require__(27));
+	app.factory('GamesService', __webpack_require__(26));
+	app.factory('PlayersService', __webpack_require__(27));
+	app.factory('SessionsService', __webpack_require__(28));
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports) {
 
-	module.exports = function($http, $q) {
+	module.exports = function($http, $q, SERVER_URI) {
 	  return {
 	    GetAll: function() {
 	      var q;
 	      q = $q.defer();
-	      $http.get('http://localhost:3000/games/list').success(function(data) {
+	      $http.get(SERVER_URI + '/games/list').success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73514,7 +73527,7 @@
 	    Get: function(id) {
 	      var q;
 	      q = $q.defer();
-	      $http.get('/games/' + id).success(function(data) {
+	      $http.get(SERVER_URI + '/games/' + id).success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73522,7 +73535,7 @@
 	    Add: function(game) {
 	      var q;
 	      q = $q.defer();
-	      $http.post('/games/', game).success(function(data) {
+	      $http.post(SERVER_URI + '/games/', game).success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73530,7 +73543,7 @@
 	    New: function() {
 	      var q;
 	      q = $q.defer();
-	      $http.get('/games/new').success(function(data) {
+	      $http.get(SERVER_URI + '/games/new').success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73538,19 +73551,19 @@
 	  };
 	};
 
-	module.exports.$inject = ['$http', '$q'];
+	module.exports.$inject = ['$http', '$q', 'SERVER_URI'];
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports) {
 
-	module.exports = function($http, $q) {
+	module.exports = function($http, $q, SERVER_URI) {
 	  return {
 	    GetAll: function(unknown) {
 	      var q;
 	      q = $q.defer();
-	      $http.get('/players/list', {
+	      $http.get(SERVER_URI + '/players/list', {
 	        include_unknown: unknown
 	      }).success(function(data) {
 	        q.resolve(data);
@@ -73560,7 +73573,7 @@
 	    Get: function(id) {
 	      var q;
 	      q = $q.defer();
-	      $http.get('/players/' + id).success(function(data) {
+	      $http.get(SERVER_URI + '/players/' + id).success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73568,7 +73581,7 @@
 	    Add: function(player) {
 	      var q;
 	      q = $q.defer();
-	      $http.post('/players/', player).success(function(data) {
+	      $http.post(SERVER_URI + '/players/', player).success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73576,19 +73589,19 @@
 	  };
 	};
 
-	module.exports.$inject = ['$http', '$q'];
+	module.exports.$inject = ['$http', '$q', 'SERVER_URI'];
 
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports) {
 
-	module.exports = function($http, $q) {
+	module.exports = function($http, $q, SERVER_URI) {
 	  return {
 	    GetAll: function() {
 	      var q;
 	      q = $q.defer();
-	      $http.get('/sessions').success(function(data) {
+	      $http.get(SERVER_URI + '/sessions/list').success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73596,7 +73609,7 @@
 	    Get: function(id) {
 	      var q;
 	      q = $q.defer();
-	      $http.get('/sessions/' + id).success(function(data) {
+	      $http.get(SERVER_URI + '/sessions/' + id).success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73604,7 +73617,7 @@
 	    Add: function(session) {
 	      var q;
 	      q = $q.defer();
-	      $http.post('/sessions/', session).success(function(data) {
+	      $http.post(SERVER_URI + '/sessions/', session).success(function(data) {
 	        q.resolve(data);
 	      });
 	      return q.promise;
@@ -73612,7 +73625,7 @@
 	  };
 	};
 
-	module.exports.$inject = ['$http', '$q'];
+	module.exports.$inject = ['$http', '$q', 'SERVER_URI'];
 
 
 /***/ }

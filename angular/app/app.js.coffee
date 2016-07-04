@@ -4,14 +4,18 @@ require('angular-cookie')
 require('ng-token-auth')
 
 angular = require('angular')
-config = require('./config.js.coffee')
-run = require('./run.js.coffee')
 
 app = angular.module('BoardgameTracker', [
   'ngMaterial',
   'ui.router',
-  'ng-token-auth'
+  'ng-token-auth',
 ])
+
+configuration = require('json!./config/configuration.json')
+app.constant('SERVER_URI', configuration.SERVER_URI)
+
+config = require('./config.js.coffee')
+run = require('./run.js.coffee')
 
 require('./controllers')
 require('./services')

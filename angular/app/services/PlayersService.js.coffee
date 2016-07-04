@@ -1,25 +1,25 @@
-module.exports = ($http, $q) -> {
+module.exports = ($http, $q, SERVER_URI) -> {
     GetAll: (unknown) ->
         q = $q.defer()
-        $http.get('/players/list', { include_unknown: unknown })
+        $http.get(SERVER_URI + '/players/list', { include_unknown: unknown })
         .success (data) ->
           q.resolve(data)
           return
         return q.promise
     Get: (id) ->
         q = $q.defer()
-        $http.get('/players/' + id)
+        $http.get(SERVER_URI + '/players/' + id)
         .success (data) ->
           q.resolve(data)
           return
         return q.promise
     Add: (player) ->
       q = $q.defer()
-      $http.post('/players/', player)
+      $http.post(SERVER_URI + '/players/', player)
       .success (data) ->
         q.resolve(data)
         return
       return q.promise
   }
 
-module.exports.$inject = ['$http', '$q']
+module.exports.$inject = ['$http', '$q', 'SERVER_URI']
