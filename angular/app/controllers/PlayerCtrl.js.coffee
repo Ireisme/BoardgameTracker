@@ -1,7 +1,7 @@
-angular.module('BoardgameTracker')
-.controller 'PlayerCtrl', ['$scope', '$stateParams', 'PlayersService', ($scope, $stateParams, PlayersService) ->
+module.exports = ($scope, $stateParams, PlayersService) ->
   PlayersService.Get($stateParams.id)
-    .then (data) -> 
+    .then (data) ->
       $scope.player = data
       return
-  ]
+
+module.exports.$inject = ['$scope', '$stateParams', 'PlayersService']

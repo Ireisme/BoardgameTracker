@@ -1,6 +1,4 @@
-angular.module('BoardgameTracker').factory 'PlayersService', [
-  '$http', '$q'
-  ($http, $q) -> {
+module.exports = ($http, $q) -> {
     GetAll: (unknown) ->
         q = $q.defer()
         $http.get('/players/list', { include_unknown: unknown })
@@ -23,4 +21,5 @@ angular.module('BoardgameTracker').factory 'PlayersService', [
         return
       return q.promise
   }
-]
+
+module.exports.$inject = ['$http', '$q']

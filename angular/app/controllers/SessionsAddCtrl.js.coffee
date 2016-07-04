@@ -1,6 +1,4 @@
-angular.module('BoardgameTracker')
-.controller "SessionsAddCtrl", ["$scope", "$state", "GamesService", "PlayersService", "SessionsService", "dateFilter",
-($scope, $state, GamesService, PlayersService, SessionsService, dateFilter) ->
+module.exports = ($scope, $state, GamesService, PlayersService, SessionsService, dateFilter) ->
   $scope.session = {
     played: new Date
     session_players: []
@@ -45,4 +43,5 @@ angular.module('BoardgameTracker')
       return
 
   return
-  ]
+
+module.exports = ["$scope", "$state", "GamesService", "PlayersService", "SessionsService", "dateFilter"]

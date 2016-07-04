@@ -1,9 +1,7 @@
-angular.module('BoardgameTracker').factory 'GamesService', [
-  '$http', '$q'
-  ($http, $q) -> { 
+module.exports = ($http, $q) -> {
     GetAll: ->
         q = $q.defer()
-        $http.get('/games/list')
+        $http.get('http://localhost:3000/games/list')
         .success (data) ->
           q.resolve(data)
           return
@@ -15,7 +13,7 @@ angular.module('BoardgameTracker').factory 'GamesService', [
           q.resolve(data)
           return
         return q.promise
-    Add: (game) -> 
+    Add: (game) ->
       q = $q.defer()
       $http.post('/games/', game)
       .success (data) ->
@@ -30,4 +28,5 @@ angular.module('BoardgameTracker').factory 'GamesService', [
         return
       return q.promise
   }
-]
+
+module.exports.$inject = ['$http', '$q']

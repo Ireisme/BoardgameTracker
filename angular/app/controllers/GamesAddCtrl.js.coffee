@@ -1,15 +1,15 @@
-angular.module('BoardgameTracker')
-.controller 'GamesAddCtrl', ['$scope', '$stateParams', '$state', 'GamesService', ($scope, $stateParams, $state, GamesService) ->
+module.exports = ($scope, $stateParams, $state, GamesService) ->
   GamesService.New()
   .then (data) ->
     $scope.game = data
 
-  $scope.add = -> 
+  $scope.add = ->
   	GamesService.Add($scope.game)
-    .then (data) -> 
+    .then (data) ->
       $state.go('home.games.view', { id: data })
       return
   $scope.cancel = ->
     $state.go('home.games.all')
     return
-  ]
+
+module.exports.$inject = ['$scope', '$stateParams', '$state', 'GamesService']

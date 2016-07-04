@@ -1,5 +1,4 @@
-angular.module('BoardgameTracker')
-.controller 'LoginCtrl', ['$scope', '$state', '$stateParams', 'Auth', ($scope, $state, $stateParams, Auth) ->
+module.exports = ($scope, $state, $stateParams, Auth) ->
   $scope.login = ->
     Auth.login($scope.credentials)
     .then ->
@@ -11,4 +10,5 @@ angular.module('BoardgameTracker')
         $state.go 'home'
       return
     return
-  ]
+
+module.exports.$inject = ['$scope', '$state', '$stateParams', 'Auth']

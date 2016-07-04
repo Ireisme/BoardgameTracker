@@ -32,3 +32,7 @@
 
 # Ignore cache
 /rails/vendor
+
+# Ignore angular packages
+/angular/node_modules
+/angular/bower_components
