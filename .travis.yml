@@ -12,3 +12,5 @@ before_script:
 - bundle install
 - cp config/database.travis.yml config/database.yml
 - psql -c 'create database gametracker_test' -U postgres
+addons:
+  postgresql: "9.3"

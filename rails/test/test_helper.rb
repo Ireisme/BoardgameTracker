@@ -16,6 +16,8 @@ class ActionController::TestCase
 
   def setup
     # explicitly sign in to avoid login redirect
-    sign_in users(:user1)
+    user = users(:user1)
+    sign_in user
+    request.headers.merge!(user.create_new_auth_token)
   end
 end
