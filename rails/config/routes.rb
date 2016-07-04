@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth'
 
   resources :games do
     resources :sessions
@@ -23,11 +24,11 @@ Rails.application.routes.draw do
     resources :session_players
   end
 
-  devise_for :users, :skip => [:registrations]
-  as :user do
-    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
-    put 'users' => 'devise/registrations#update', :as => 'user_registration'
-  end
+  # devise_for :users, :skip => [:registrations]
+  # as :user do
+  #   get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+  #   put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  # end
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.

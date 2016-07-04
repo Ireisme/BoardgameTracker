@@ -1,4 +1,4 @@
-module.exports = ($rootScope, $state, Auth, $templateCache) ->
+module.exports = ($rootScope, $state, $auth, $templateCache) ->
 
   templates = require('./templates.js')
   templates($templateCache)
@@ -6,8 +6,7 @@ module.exports = ($rootScope, $state, Auth, $templateCache) ->
   $rootScope.$on '$stateChangeStart', (evt, next, nextParams, current, currentParams) ->
     params = undefined
     if next.name != 'login'
-      console.log 'app.js.coffee'
-      Auth.currentUser({ interceptAuth: false }).then ((user) ->
+      $auth.validateUser().then ((user) ->
         console.log user
       ),
       (error) ->
@@ -21,4 +20,4 @@ module.exports = ($rootScope, $state, Auth, $templateCache) ->
 
     return
 
-module.exports.$inject = ['$rootScope', '$state', 'Auth', '$templateCache']
+module.exports.$inject = ['$rootScope', '$state', '$auth', '$templateCache']

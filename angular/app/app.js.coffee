@@ -1,6 +1,7 @@
 require('angular-material')
 require('angular-ui-router')
-require('AngularDevise')
+require('angular-cookie')
+require('ng-token-auth')
 
 angular = require('angular')
 config = require('./config.js.coffee')
@@ -9,7 +10,7 @@ run = require('./run.js.coffee')
 app = angular.module('BoardgameTracker', [
   'ngMaterial',
   'ui.router',
-  'Devise'
+  'ng-token-auth'
 ])
 
 require('./controllers')

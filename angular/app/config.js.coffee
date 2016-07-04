@@ -1,6 +1,9 @@
-module.exports = ($stateProvider, $urlRouterProvider, AuthProvider) ->
+module.exports = ($stateProvider, $urlRouterProvider, $authProvider) ->
 
-  AuthProvider.baseUrl('http://localhost:3000')
+  $authProvider.configure({
+      apiUrl: 'http://localhost:3000',
+      storage: 'localStorage'
+  })
 
   $stateProvider
     .state 'login',
@@ -78,4 +81,4 @@ module.exports = ($stateProvider, $urlRouterProvider, AuthProvider) ->
     $urlRouterProvider.otherwise 'home'
     return
 
-module.exports.$inject = ['$stateProvider', '$urlRouterProvider', 'AuthProvider']
+module.exports.$inject = ['$stateProvider', '$urlRouterProvider', '$authProvider']

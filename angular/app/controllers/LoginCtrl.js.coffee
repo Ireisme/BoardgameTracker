@@ -1,6 +1,6 @@
-module.exports = ($scope, $state, $stateParams, Auth) ->
+module.exports = ($scope, $state, $stateParams, $auth) ->
   $scope.login = ->
-    Auth.login($scope.credentials)
+    $auth.submitLogin($scope.credentials)
     .then ->
       redirectTo = $stateParams.redirectTo
       if redirectTo
@@ -11,4 +11,4 @@ module.exports = ($scope, $state, $stateParams, Auth) ->
       return
     return
 
-module.exports.$inject = ['$scope', '$state', '$stateParams', 'Auth']
+module.exports.$inject = ['$scope', '$state', '$stateParams', '$auth']
