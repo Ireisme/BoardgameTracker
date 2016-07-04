@@ -16,26 +16,26 @@ ActiveRecord::Schema.define(version: 20160704140141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "games", force: true do |t|
-    t.string   "name"
+  create_table "games", force: :cascade do |t|
+    t.string   "name",        limit: 255
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
-    t.integer  "game_type",   null: false
+    t.string   "image",       limit: 255
+    t.integer  "game_type",               null: false
   end
 
-  create_table "players", force: true do |t|
-    t.string   "name"
+  create_table "players", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.text     "powers"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "session_players", force: true do |t|
+  create_table "session_players", force: :cascade do |t|
     t.integer  "score"
     t.integer  "placing"
-    t.string   "team_number"
+    t.string   "team_number", limit: 255
     t.integer  "player_id"
     t.integer  "session_id"
     t.datetime "created_at"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160704140141) do
   add_index "session_players", ["player_id"], name: "index_session_players_on_player_id", using: :btree
   add_index "session_players", ["session_id"], name: "index_session_players_on_session_id", using: :btree
 
-  create_table "sessions", force: true do |t|
+  create_table "sessions", force: :cascade do |t|
     t.date     "played"
     t.text     "notes"
     t.integer  "game_id"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160704140141) do
 
   add_index "sessions", ["game_id"], name: "index_sessions_on_game_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
     t.string   "uid",                    default: "",      null: false
     t.string   "encrypted_password",     default: "",      null: false
