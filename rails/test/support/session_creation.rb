@@ -1,7 +1,8 @@
 module SessionCreation
 
-  def create_session(game, winning_players: [], losing_players: [])
+  def create_session(game, winning_players: [], losing_players: [], played: nil)
     session = Session.new(:game_id => game.id)
+    session.played = played || Time.now
     session.save
 
     winning_players.each do |winner|
