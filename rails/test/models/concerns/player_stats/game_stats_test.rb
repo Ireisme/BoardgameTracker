@@ -118,4 +118,67 @@ class GameStatsTest < ActiveSupport::TestCase
       assert_equal 0.25, best_game.win_percent
     end
   end
+
+  context 'overall win calculation' do
+    should 'return 0 when no games have been played' do
+      player = create_player
+
+      win_percent = PlayerStatistic.new(player.id).win_rate
+
+      assert_equal 0, win_percent
+    end
+
+    should 'return 0 when no games have been won' do
+      player = create_player
+      game = create_game
+      create_session(game, losing_players: [player])
+
+      win_percent = PlayerStatistic.new(player.id).win_rate
+
+      assert_equal 0, win_percent
+    end
+
+    should 'return 1 when no games have been lost' do
+      player = create_player
+      game = create_game
+      create_session(game, winning_players: [player])
+
+      win_percent = PlayerStatistic.new(player.id).win_rate
+
+      assert_equal 1, win_percent
+    end
+
+    should 'calculate all sessions for a game' do
+      player = create_player
+      game = create_game
+      create_session(game, winning_players: [player])
+      create_session(game, losing_players: [player])
+
+      win_percent = PlayerStatistic.new(player.id).win_rate
+
+      assert_equal 0.5, win_percent
+    end
+
+    should 'calculate based upon all games played' do
+      player = create_player
+      game1 = create_game
+      game2 = create_game('game2')
+      create_session(game1, winning_players: [player])
+      create_session(game2, losing_players: [player])
+
+      win_percent = PlayerStatistic.new(player.id).win_rate
+
+      assert_equal 0.5, win_percent
+    end
+
+    should 'calculate based upon best placing in game when playing as multiple players' do
+      player = create_player
+      game = create_game
+      create_session(game, winning_players: [player], losing_players: [player])
+
+      win_percent = PlayerStatistic.new(player.id).win_rate
+
+      assert_equal 1, win_percent
+    end
+  end
 end
