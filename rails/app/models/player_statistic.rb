@@ -3,5 +3,5 @@ class PlayerStatistic
     @player_id = player_id
   end
 
-  include PlayerStats::SessionStats, PlayerStats::GameStats
+  include PlayerStats::SessionStats, PlayerStats::GameStats, PlayerStats::GameStreakStats
 end
