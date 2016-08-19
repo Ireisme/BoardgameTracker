@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'players/:id/statistics' => 'player_statistics#show'
+
   resources :sessions do
     collection do
       get 'new', as: 'new'
