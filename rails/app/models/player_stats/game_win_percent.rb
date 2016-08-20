@@ -5,6 +5,6 @@ module PlayerStats
       @win_percent = win_percent
     end
 
-    attr_accessor :game, :win_percent
+    attr_reader :game, :win_percent
   end
 end

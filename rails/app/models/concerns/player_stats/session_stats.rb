@@ -14,12 +14,13 @@ module PlayerStats
 
         game_result = Game.from(subquery)
                       .group('game_id')
-                      .select('game_id')
+                      .select('game_id, count(game_id) as session_count')
                       .order('count(game_id) desc')
                       .first
         return nil unless game_result
 
-        return Game.find(game_result.game_id)
+        game = Game.find(game_result.game_id)
+        return PlayerStats::GameSessionCount.new(game, game_result.session_count)
       end
   end
 end
