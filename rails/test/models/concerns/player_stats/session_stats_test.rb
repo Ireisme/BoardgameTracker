@@ -23,29 +23,37 @@ class SessionStatsTest < ActiveSupport::TestCase
     end
   end
 
-  context 'favorite game' do
+  context 'most played game' do
+    should 'return nil when no games played' do
+      player = create_player
+
+      most_played_game = PlayerStatistic.new(player.id).most_played_game
+
+      assert_nil most_played_game
+    end
+
     should 'calculate based upon most sessions played' do
       player = create_player
-      game_one = create_game('favorite')
+      game_one = create_game('mostPlayed')
       game_two = create_game
       2.times { create_session(game_one, winning_players: [player]) }
       create_session(game_two, winning_players: [player])
 
-      favorite_game = PlayerStatistic.new(player.id).favorite_game
+      most_played_game = PlayerStatistic.new(player.id).most_played_game
 
-      assert_equal game_one, favorite_game
+      assert_equal game_one, most_played_game
     end
 
     should 'count sessions with duplicate players once' do
       player = create_player
-      game_one = create_game('favorite')
+      game_one = create_game('mostPlayed')
       game_two = create_game
       3.times { create_session(game_one, winning_players:[player]) }
       2.times { create_session(game_two, winning_players:[player, player]) }
 
-      favorite_game = PlayerStatistic.new(player.id).favorite_game
+      most_played_game = PlayerStatistic.new(player.id).most_played_game
 
-      assert_equal game_one, favorite_game
+      assert_equal game_one, most_played_game
     end
   end
 end
