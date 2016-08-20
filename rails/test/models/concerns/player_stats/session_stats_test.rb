@@ -41,7 +41,8 @@ class SessionStatsTest < ActiveSupport::TestCase
 
       most_played_game = PlayerStatistic.new(player.id).most_played_game
 
-      assert_equal game_one, most_played_game
+      assert_equal game_one, most_played_game.game
+      assert_equal 2, most_played_game.session_count
     end
 
     should 'count sessions with duplicate players once' do
@@ -53,7 +54,8 @@ class SessionStatsTest < ActiveSupport::TestCase
 
       most_played_game = PlayerStatistic.new(player.id).most_played_game
 
-      assert_equal game_one, most_played_game
+      assert_equal game_one, most_played_game.game
+      assert_equal 3, most_played_game.session_count
     end
   end
 end
