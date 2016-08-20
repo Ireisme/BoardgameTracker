@@ -6,20 +6,20 @@ module PlayerStats
         SessionPlayer.where('player_id = ?', @player_id).distinct.count(:session_id)
       end
 
-      def favorite_game
+      def most_played_game
         subquery = SessionPlayer.joins(:session)
                        .where('player_id = ?', @player_id)
                        .group('sessions.id')
                        .select('sessions.game_id')
 
-        game_id = Game.from(subquery)
+        game_result = Game.from(subquery)
                       .group('game_id')
                       .select('game_id')
                       .order('count(game_id) desc')
                       .first
-                      .game_id
+        return nil unless game_result
 
-        return Game.find(game_id)
+        return Game.find(game_result.game_id)
       end
   end
 end
