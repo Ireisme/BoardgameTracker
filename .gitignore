@@ -36,3 +36,6 @@
 # Ignore angular packages
 /angular/node_modules
 /angular/bower_components
+
+# Ignore gulp build directory
+/angular/build
