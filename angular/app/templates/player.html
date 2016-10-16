@@ -1,6 +1,55 @@
 <div layout="row">
   <div flex>
-    <h2>{{ player.name }}</h2>
-    <h4>{{ player.powers }}</h4>
+    <h2>{{player.name}}</h2>
+    <h4>{{player.powers}}</h4>
   </div>
 </div>
+
+<div layout="column" ng-if="player.statistics" ng-init="stats=player.statistics">
+  <div flex>
+    <div layout="row" ng-if="stats.best_streak">
+      <div flex="33">
+        <div flex>Best Streak</div>
+        <div flex>{{stats.best_streak}}</div>
+      </div>
+      <div flex="33" ng-if="stats.overall_percentage">
+        <div flex>Overall Win Percentage</div>
+        <div>{{stats.overall_percentage}}%</div>
+      </div>
+      <div flex="33" ng-if="stats.current_streak">
+        <div flex>Current Streak</div>
+        <div>{{stats.current_streak}}</div>
+      </div>
+    </div>
+  </div>
+  <md-divider></md-divider>
+  <div flex>
+    <div flex="50" ng-if="stats.best_game" ng-init="best=stats.best_game">
+      <h3>Best Game</h3>
+      <div layout="column">
+        <div layout="row">
+          <div flex>Name</div>
+          <div flex>{{best.game.name}}</div>
+        </div>
+        <div layout="row">
+          <div flex>Percentage</div>
+          <div flex>{{best.percentage}}%</div>
+        </div>
+      </div>
+    </div>
+    <div flex="50" ng-if="stats.worst_game" ng-init="worst=stats.worst_game">
+      <h3>Worst Game</h3>
+      <div layout="column">
+        <div layout="row">
+          <div flex>Name</div>
+          <div flex>{{worst.game.name}}</div>
+        </div>
+        <div layout="row">
+          <div flex>Percentage</div>
+          <div flex>{{worst.percentage}}%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 ng-if="player.statistics == null">No Stats (Yet)</h3>
