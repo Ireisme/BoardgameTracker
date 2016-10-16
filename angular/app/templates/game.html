@@ -1,39 +1,38 @@
-<div layout="row">
-  <div flex>
-    <h2>{{ game.name }}</h2>
-    <h4>{{ game.description }}</h4>
-  </div>
-  <div flex>
-    <span ng-show="game.coop"><i class="fa fa-user-plus"></i></span>
-  </div>
-</div>
-
-<div layout="row" layout-xs="column" ng-if="game.best_player">
-    <div flex="50">
-        <h3>Best Player</h3>
-        <div layout="column">
-            <div layout="row">
-                <div flex>Name</div>
-                <div flex>{{game.best_player.name}}</div>
-            </div>
-            <div layout="row">
-                <div flex>Percentage</div>
-                <div flex>{{game.best_player.percentage}}%</div>
-            </div>
-        </div>
-    </div>
-    <div flex="50" ng-if="game.worst_player">
-        <h3>Worst Player</h3>
-        <div layout="column">
-            <div layout="row">
-                <div flex>Name</div>
-                <div flex>{{game.worst_player.name}}</div>
-            </div>
-            <div layout="row">
-                <div flex>Percentage</div>
-                <div flex>{{game.worst_player.percentage}}%</div>
-            </div>
-        </div>
-    </div>
-</div>
-<h3 ng-if="game.best_player == null">No Stats (Yet)</h3>
+<md-content flex layout="column" layout-align="center">
+  <flex layout-padding>
+    <img style="max-width: 80%; max-height: 80%;" ng-if="game.image" ng-src="{{ game.image }}">
+    <img style="max-width: 80%; max-height: 80%;" ng-if="!game.image" src="http://vignette1.wikia.nocookie.net/touhou/images/e/ed/Arkham_Horror_revised_box.jpg/revision/latest?cb=20110131185948">
+  </flex>
+  <flex layout-padding>
+     <md-toolbar layout="row" class="md-hue-3">
+       <div class="md-toolbar-tools">
+         <span>Player Stats</span>
+       </div>
+     </md-toolbar>
+     <md-content>
+       <md-list flex>
+         <md-list-item class="md-3-line" ui-sref="home.players.view({ id: game.best_player.id })" ng-show="game.best_player">
+           <img src="http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png" class="md-avatar" alt="{{ game.best_player.name }}" />
+           <div class="md-list-item-text" layout="column">
+             <h3>Best Player</h3>
+             <h4>{{ game.best_player.name }}</h4>
+             <p>Wins {{ game.best_player.percentage }}% of the time</p>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ui-sref="home.players.view({ id: game.worst_player.id })" ng-show="game.worst_player">
+           <img src="http://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png" class="md-avatar" alt="{{ game.worst_player.name }}" />
+           <div class="md-list-item-text" layout="column">
+             <h3>Worst Player</h3>
+             <h4>{{ game.worst_player.name }}</h4>
+             <p>Wins {{ game.worst_player.percentage }}% of the time</p>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ng-click="null" ng-show="!game.best_player && !game.worst_player">
+          <div class="md-list-item-text" layout="column">
+            <p>No Stats (Yet)</p>
+           </div>
+         </md-list-item>
+       </md-list>
+     </md-content>
+   </flex>
+</md-content>
