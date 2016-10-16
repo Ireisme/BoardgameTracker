@@ -1,7 +1,8 @@
-module.exports = ($scope, $stateParams, PlayersService, PlayerStatisticsService) ->
+module.exports = ($scope, $stateParams, PlayersService, PlayerStatisticsService, TitleService) ->
   PlayersService.Get($stateParams.id)
     .then (data) ->
       $scope.player = data
+      TitleService.Title = $scope.player.name
       return
     .then ->
       PlayerStatisticsService.Get($stateParams.id)
@@ -15,7 +16,7 @@ module.exports = ($scope, $stateParams, PlayersService, PlayerStatisticsService)
           $scope.player.statistics.best_game.percentage = to_percent(best_game?.win_percent)
           $scope.player.statistics.worst_game.percentage = to_percent(worst_game?.win_percent)
           $scope.player.statistics.overall_percentage = to_percent(overall_percent)
-          
+
           return
 
-module.exports.$inject = ['$scope', '$stateParams', 'PlayersService', 'PlayerStatisticsService']
+module.exports.$inject = ['$scope', '$stateParams', 'PlayersService', 'PlayerStatisticsService', 'TitleService']

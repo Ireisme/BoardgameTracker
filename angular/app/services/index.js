@@ -5,3 +5,4 @@ app.factory('GamesService', require('./GamesService.js.coffee'));
 app.factory('PlayersService', require('./PlayersService.js.coffee'));
 app.factory('SessionsService', require('./SessionsService.js.coffee'));
 app.factory('PlayerStatisticsService', require('./PlayerStatisticsService.js.coffee'));
+app.factory('TitleService', require('./TitleService.js.coffee'));
