@@ -3,6 +3,8 @@ require('angular-ui-router')
 require('angular-cookie')
 require('ng-token-auth')
 
+require('../index.html')
+
 angular = require('angular')
 
 app = angular.module('BoardgameTracker', [

@@ -17,8 +17,9 @@
     "tests"
   ],
   "dependencies": {
+    "angular": "~1.5.3",
     "angular-ui-router": "~0.3.1",
-    "angular-material": "1.1.0-rc.5-master-42833aa",
+    "angular-material": "1.1.1",
     "AngularDevise": "angular-devise#~1.3.0",
     "ng-token-auth": "^0.0.29"
   },

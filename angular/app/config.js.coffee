@@ -8,12 +8,12 @@ module.exports = ($stateProvider, $urlRouterProvider, $authProvider) ->
   $stateProvider
     .state 'login',
       url: '/login'
-      templateUrl: 'login.html'
+      template: require('./templates/login.html')
       controller: 'LoginCtrl'
       title: 'Login'
     .state 'home',
       url: '/home'
-      templateUrl: 'home.html'
+      template: require('./templates/home.html')
       controller: 'HomeCtrl'
       title: 'Home'
     .state 'home.games',
@@ -23,17 +23,17 @@ module.exports = ($stateProvider, $urlRouterProvider, $authProvider) ->
       title: 'Games'
     .state 'home.games.all',
       url: '/all'
-      templateUrl: 'games-all.html'
+      template: require('./templates/games-all.html')
       controller: 'GamesAllCtrl'
       title: 'Games'
     .state 'home.games.add',
       url: '/add'
-      templateUrl: 'games-add.html'
+      template: require('./templates/games-add.html')
       controller: 'GamesAddCtrl'
       title: 'Add a Game'
     .state 'home.games.view',
       url: '/{id}'
-      templateUrl: 'game.html'
+      template: require('./templates/game.html')
       controller: 'GameCtrl'
       title: '{{ game.name }}'
       resolve:
@@ -46,17 +46,17 @@ module.exports = ($stateProvider, $urlRouterProvider, $authProvider) ->
       title: 'Players'
     .state 'home.players.all',
       url: '/all'
-      templateUrl: 'players-all.html'
+      template: require('./templates/players-all.html')
       controller: 'PlayersAllCtrl'
       title: 'Players'
     .state 'home.players.add',
       url: '/add'
-      templateUrl: 'players-add.html'
+      template: require('./templates/players-add.html')
       controller: 'PlayersAddCtrl'
       title: 'Add Player'
     .state 'home.players.view',
       url: '/{id}'
-      templateUrl: 'player.html'
+      template: require('./templates/player.html')
       controller: 'PlayerCtrl'
       title: '{{ player.name }}'
       resolve:
@@ -69,12 +69,12 @@ module.exports = ($stateProvider, $urlRouterProvider, $authProvider) ->
       title: 'Sessions'
     .state 'home.sessions.all',
       url: '/all'
-      templateUrl: 'sessions-all.html'
+      template: require('./templates/sessions-all.html')
       controller: 'SessionsAllCtrl'
       title: 'Sessions'
     .state 'home.sessions.add',
       url: '/add'
-      templateUrl: 'sessions-add.html'
+      template: require('./templates/sessions-add.html')
       controller: 'SessionsAddCtrl'
       title: 'Add Session'
 

@@ -11,6 +11,7 @@
   "devDependencies": {
     "browser-sync": "^2.13.0",
     "browser-sync-webpack-plugin": "~1.0.3",
+    "coffee-script": "^1.11.1",
     "gulp": "~3.9.1",
     "gulp-angular-templatecache": "~2.0.0",
     "html-loader": "~0.4.3",
@@ -18,6 +19,11 @@
     "ng-annotate-webpack-plugin": "~0.1.3",
     "ngtemplate-loader": "~1.3.1",
     "webpack": "~1.13.1",
-    "webpack-stream": "~3.2.0"
+    "webpack-stream": "~3.2.0",
+    "coffee-loader": "~0.7.2",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "raw-loader": "^0.5.1"
   }
 }

@@ -6,14 +6,6 @@ var browserSync = require('browser-sync');
 gulp.task('views', function() {
   gulp.src(['index.html'])
     .pipe(gulp.dest('build/'))
-
-  return gulp.src('app/templates/**/*.html')
-    .pipe(templateCache({
-      moduleSystem: 'browserify',
-      templateHeader: 'function($templateCache) {\n',
-      templateFooter: '\n}\nmodule.exports.$inject = ["$templateCache"];'
-    }))
-    .pipe(gulp.dest('app'));
 });
 
 gulp.task('webpack', ['views'], function() {
