@@ -1,6 +1,61 @@
-<div layout="row">
-  <div flex>
-    <h2>{{ player.name }}</h2>
-    <h4>{{ player.powers }}</h4>
-  </div>
-</div>
+<md-content flex layout="column" layout-align="center">
+  <flex layout-padding>
+     <md-toolbar layout="row" class="md-hue-3">
+       <div class="md-toolbar-tools">
+         <span>Stats</span>
+       </div>
+     </md-toolbar>
+     <md-content>
+       <md-list flex>
+         <md-list-item class="md-3-line" ng-show="statistics.overall_percentage">
+           <div class="md-list-item-text" layout="column">
+             <h3>Win Rate</h3>
+             <h4>{{ statistics.overall_percentage }}%</h4>
+             <p ng-show="statistics.overall_percentage >= 75">Must be Candyce.</p>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ng-show="statistics.best_streak">
+           <div class="md-list-item-text" layout="column">
+             <h3>Best Streak</h3>
+             <h4>{{ statistics.best_streak }}</h4>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ng-show="statistics.current_streak">
+           <div class="md-list-item-text" layout="column">
+             <h3>Current Streak</h3>
+             <h4>{{ statistics.current_streak }}</h4>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ui-sref="home.games.view({ id: statistics.most_played_game.game.id })" ng-show="statistics.most_played_game">
+           <img ng-src="{{ statistics.most_played_game.game.image }}" class="md-avatar" />
+           <div class="md-list-item-text" layout="column">
+             <h3>Favorite Game</h3>
+             <h4>{{ statistics.most_played_game.game.name }}</h4>
+             <p>{{ statistics.most_played_game.session_count }} plays</p>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ui-sref="home.games.view({ id: statistics.best_game.game.id })" ng-show="statistics.best_game">
+           <img ng-src="{{ statistics.best_game.game.image }}" class="md-avatar" />
+           <div class="md-list-item-text" layout="column">
+             <h3>Best Game</h3>
+             <h4>{{ statistics.best_game.game.name }}</h4>
+             <p>Wins {{ statistics.best_game.percentage }}% of the time</p>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ui-sref="home.games.view({ id: statistics.worst_game.game.id })" ng-show="statistics.worst_game">
+           <img ng-src="{{ statistics.worst_game.game.image }}" class="md-avatar" />
+           <div class="md-list-item-text" layout="column">
+             <h3>Worst Game</h3>
+             <h4>{{ statistics.worst_game.game.name }}</h4>
+             <p>Wins {{ statistics.worst_game.percentage }}% of the time</p>
+           </div>
+         </md-list-item>
+         <md-list-item class="md-3-line" ng-click="null" ng-show="!statistics">
+          <div class="md-list-item-text" layout="column">
+            <p>No Stats (Yet)</p>
+           </div>
+         </md-list-item>
+       </md-list>
+     </md-content>
+   </flex>
+</md-content>
