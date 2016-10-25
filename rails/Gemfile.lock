@@ -81,6 +81,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
+    puma (3.6.0)
     rack (1.6.4)
     rack-cors (0.4.0)
     rack-test (0.6.3)
@@ -144,6 +145,7 @@ DEPENDENCIES
   devise_token_auth
   omniauth
   pg
+  puma
   rack-cors
   rails (= 4.2.6)
   responders (= 2.2.0)
