@@ -77,7 +77,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Configure smtp
-  config.mailer_sender = 'mail-to-send@from.com'
+  config.mailer_sender = 'no-reply@candyce-wins.herokuapp.com'
   ActionMailer::Base.smtp_settings = {
       :address              => 'smtp.sendgrid.net',
       :port                 => '587',
