@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 Dir[Rails.root.join("test/support/**/*")].each { |f| require f }
+require_relative 'helpers/fixture_helpers.rb'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -21,3 +22,9 @@ class ActionController::TestCase
     request.headers.merge!(user.create_new_auth_token)
   end
 end
+
+class ActionDispatch::IntegrationTest
+  include SessionHelper
+end
+
+ActiveRecord::FixtureSet.context_class.include FixtureHelpers

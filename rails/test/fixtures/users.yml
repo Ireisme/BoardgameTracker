@@ -3,3 +3,7 @@
 user1:
   id: 1
   email: user1@example.com
+  encrypted_password: <%= default_password_digest %>
+  created_at: <%= Time.now - 6.minutes %>
+  updated_at: <%= Time.now - 4.minutes %>
+  confirmed_at: <%= Time.now - 3.minutes %>

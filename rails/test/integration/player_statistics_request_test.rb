@@ -6,7 +6,7 @@ class PlayerStatisticsRequestTest < ActionDispatch::IntegrationTest
   test 'gets existing player statistics' do
     player = create_player
 
-    get "/players/#{player.id}/statistics"
+    get "/players/#{player.id}/statistics", retrieve_access_headers
 
     assert_response :success
     result = JSON.parse(response.body)
@@ -18,7 +18,7 @@ class PlayerStatisticsRequestTest < ActionDispatch::IntegrationTest
     invalid_player = 999
 
     assert_raise ActionController::RoutingError do
-      get "/players/#{invalid_player}/statistics"
+      get "/players/#{invalid_player}/statistics", retrieve_access_headers
     end
   end
 end
