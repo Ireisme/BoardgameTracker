@@ -10,3 +10,5 @@ fs.readdirSync('./gulp').filter(function(file) {
 }).map(function(file) {
   require('./gulp/' + file);
 });
+
+gulp.task('default', ['client']);

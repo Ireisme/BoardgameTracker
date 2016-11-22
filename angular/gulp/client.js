@@ -36,4 +36,4 @@ gulp.task('serve', function() {
   })
 });
 
-gulp.task('dev', ['views', 'webpack', 'styles', 'serve']);
+gulp.task('client', ['views', 'webpack', 'styles', 'serve']);
