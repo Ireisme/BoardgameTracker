@@ -11,4 +11,6 @@ fs.readdirSync('./gulp').filter(function(file) {
   require('./gulp/' + file);
 });
 
-gulp.task('default', ['client']);
+gulp.task('serve:full-stack', ['rails', 'client']);
+
+gulp.task('default', ['serve:full-stack']);
