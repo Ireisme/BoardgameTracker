@@ -14,3 +14,5 @@ fs.readdirSync('./gulp').filter(function(file) {
 gulp.task('serve:full-stack', ['rails', 'client']);
 
 gulp.task('default', ['serve:full-stack']);
+
+gulp.task('heroku:production', ['default']);

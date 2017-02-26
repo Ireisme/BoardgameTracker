@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "BSD-2-Clause",
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.13.0",
     "browser-sync-webpack-plugin": "~1.0.3",
     "coffee-script": "^1.11.1",
