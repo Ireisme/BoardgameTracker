@@ -15,4 +15,4 @@ gulp.task('serve:full-stack', ['rails', 'client']);
 
 gulp.task('default', ['serve:full-stack']);
 
-gulp.task('heroku:production', ['views', 'webpack', 'styles']);
+gulp.task('heroku:production', ['rails']);
