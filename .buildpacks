@@ -1,1 +1,1 @@
-angular=https://github.com/krry/heroku-buildpack-nodejs-gulp-bower.git
+rails=https://github.com/heroku/heroku-buildpack-ruby.git
