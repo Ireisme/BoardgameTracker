@@ -1,1 +1,1 @@
-web: cd rails; bundle exec puma -C config/puma.rb
+web: cd rails && bundle exec puma -C config/puma.rb 

@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "BSD-2-Clause",
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.13.0",
     "browser-sync-webpack-plugin": "~1.0.3",
     "coffee-script": "^1.11.1",
@@ -24,6 +24,7 @@
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
     "angular-material": "^1.1.1",
-    "raw-loader": "^0.5.1"
+    "raw-loader": "^0.5.1",
+    "path": "^0.12.7"
   }
 }
