@@ -4,11 +4,14 @@
   "description": "The angular portion for tracking Boardgame statistics.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install",
+    "heroku-postbuild" : "gulp heroku:production"
   },
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "bower": "",
     "browser-sync": "^2.13.0",
     "browser-sync-webpack-plugin": "~1.0.3",
     "coffee-script": "^1.11.1",
