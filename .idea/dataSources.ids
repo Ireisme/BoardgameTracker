@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails GameTracker: test" uuid="9d9e0ea4-b38b-4878-927a-34574c2f7ba5">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails GameTracker: production" uuid="52ca49b0-0919-4e70-9c5c-11f57d93bd92">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails GameTracker: development" uuid="bf375025-2935-4732-99b7-45d6eb6aedd1">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

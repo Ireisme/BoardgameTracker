@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var spawn = require('child_process').spawn;
 
 gulp.task('rails', function() {
-  var options = { cwd: '../rails' };
+  var options = { cwd: '..' };
   const rails = spawn('rails', ['server'], options);
 
   rails.stdout.on('data', (data) => {

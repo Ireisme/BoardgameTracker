@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+unknown:
+  id: -1
+  name: Uknown
+
+candyce:
+  name: Candyce
+  powers: Undefeatable
+
+josh:
+  name: Josh
+
+brian:
+  name: Brian

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+game_one:
+  name: Game1
+  description: Game 1 desc
+  game_type: <%= Game.game_types[:coop] %>
+
+game_two:
+  name: Game2
+  description: Game 2 desc
+  game_type: <%= Game.game_types[:competitive] %>
