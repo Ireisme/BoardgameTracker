@@ -24,8 +24,9 @@
     "webpack": "~1.13.1",
     "webpack-stream": "~3.2.0",
     "coffee-loader": "~0.7.2",
-    "angular-animate": "^1.5.8",
-    "angular-aria": "^1.5.8",
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-aria": "1.5.8",
     "angular-material": "^1.1.1",
     "raw-loader": "^0.5.1",
     "path": "^0.12.7"
