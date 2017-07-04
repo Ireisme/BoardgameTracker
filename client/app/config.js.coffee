@@ -1,7 +1,7 @@
 module.exports = ($stateProvider, $urlRouterProvider, $authProvider) ->
 
   $authProvider.configure({
-      apiUrl: 'http://localhost:3000',
+      apiUrl: 'https://candyce-wins.herokuapp.com/',
       storage: 'localStorage'
   })
 

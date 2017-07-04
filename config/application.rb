@@ -25,12 +25,12 @@ module GameTracker
     #   DeviseController.respond_to :html, :json
     # end
 
-    config.middleware.insert_before 0, "Rack::Cors" do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'localhost', 'candyce-wins.herokuapp.com'
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :options],
+          :methods => [:get, :put, :post, :options],
           :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client']
       end
     end

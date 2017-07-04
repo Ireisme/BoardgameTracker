@@ -4,11 +4,14 @@
   "description": "The angular portion for tracking Boardgame statistics.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install",
+    "heroku-postbuild" : "gulp heroku:production"
   },
   "author": "",
   "license": "BSD-2-Clause",
-  "devDependencies": {
+  "dependencies": {
+    "bower": "",
     "browser-sync": "^2.13.0",
     "browser-sync-webpack-plugin": "~1.0.3",
     "coffee-script": "^1.11.1",
@@ -21,9 +24,11 @@
     "webpack": "~1.13.1",
     "webpack-stream": "~3.2.0",
     "coffee-loader": "~0.7.2",
-    "angular-animate": "^1.5.8",
-    "angular-aria": "^1.5.8",
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-aria": "1.5.8",
     "angular-material": "^1.1.1",
-    "raw-loader": "^0.5.1"
+    "raw-loader": "^0.5.1",
+    "path": "^0.12.7"
   }
 }

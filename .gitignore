@@ -5,37 +5,37 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/rails/.bundle
+/.bundle
 
 # Ignore the default SQLite database.
-/rails/db/*.sqlite3
-/rails/db/*.sqlite3-journal
+/db/*.sqlite3
+/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/rails/log/*.log
-/rails/tmp
+/log/*.log
+/tmp
 
 # Ignore RubyMine User-specific stuff:
-/rails/.idea/workspace.xml
-/rails/.idea/tasks.xml
-/rails/.idea/dictionaries
-/rails/.idea/vcs.xml
-/rails/.idea/jsLibraryMappings.xml
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/dictionaries
+/.idea/vcs.xml
+/.idea/jsLibraryMappings.xml
 
 # Ignore Rubymine sensitive or high-churn files:
-/rails/.idea/dataSources.ids
-/rails/.idea/dataSources.xml
-/rails/.idea/dataSources.local.xml
-/rails/.idea/sqlDataSources.xml
-/rails/.idea/dynamic.xml
-/rails/.idea/uiDesigner.xml
+/.idea/dataSources.ids
+/.idea/dataSources.xml
+/.idea/dataSources.local.xml
+/.idea/sqlDataSources.xml
+/.idea/dynamic.xml
+/.idea/uiDesigner.xml
 
 # Ignore cache
-/rails/vendor
+/vendor
 
 # Ignore angular packages
-/angular/node_modules
-/angular/bower_components
+/client/node_modules
+/client/bower_components
 
 # Ignore gulp build directory
-/angular/build
+/client/build
